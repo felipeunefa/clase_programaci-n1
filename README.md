@@ -7,4 +7,4 @@ programático de la materia.
 El mismo contendrá una carpeta con el primer nombre y el primer 
 apellido de cada alumno, más la del profesor, ejemplo felipeVillamizar 
 dentro de está encontraremos el código fuente que se realizara en 
-el laboratorio y el de las asignaciones.
+el laboratorio y el de las asignaciones, más un archivo readme.
