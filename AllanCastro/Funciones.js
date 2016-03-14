@@ -18,6 +18,7 @@ else
 	
 	alert("El numero ingresado no es valido");
 
-	
-alert("El numero mayor en la cedula ingresada es: " + mayor);
-alert("El numero menor en la cedula ingresada es: " + menor);
+
+document.write("El numero de cedula ingresado es: " + cedula + "<br> <br>");
+document.write("El numero mayor en la cedula ingresada es: " + mayor + "<br> <br>");
+document.write("El numero menor en la cedula ingresada es: " + menor);
