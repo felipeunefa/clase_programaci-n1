@@ -6,9 +6,20 @@
 var b = parseInt(prompt('Introduce un valor positivo para la base'));
 var n = parseInt(prompt('Introduce el valor positivo para el exponente'));
 var p = 1;
+var valor = false;
 while(n > 0)
 {
     p = p * b;
     n = n-1;
+if( p % 2 === 0)
+{
+	valor = true;
 }
-alert('la potencia es:'+p);
+
+}
+if(valor === true)
+{
+alert('la potencia es: '+p+' y tambien es Par!');
+}else{
+alert('la potencia es: '+p+' y tambien es Impar!');
+}
