@@ -8,14 +8,21 @@ var x = parseInt(prompt('ingrese un valor entero para x'));
 
 var y = parseInt(prompt('ingrese un valor entero para y'));
 
+while(x != 0){
 if(x >= y)
 {
-  alert('x es mayor o igual que y');  
+  alert('x = '+x+' es mayor o igual que y = '+y);  
+x = 0
+y = 0
 }else if(x <= y)
 {
-    alert('x es menor o igual que y');
+    alert('x = '+x+ ' es menor o igual que y = '+y);
+x = 0
+y = 0
 }
 else
 {
     alert('x es igual a cero');
+}
+
 }
