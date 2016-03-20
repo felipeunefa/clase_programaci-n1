@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-03-2016 a las 06:30:22
+-- Tiempo de generación: 20-03-2016 a las 08:00:44
 -- Versión del servidor: 10.1.10-MariaDB
 -- Versión de PHP: 7.0.4
 
@@ -82,7 +82,7 @@ CREATE TABLE `Empleados` (
 --
 
 INSERT INTO `Empleados` (`id_empleado`, `nombre`, `apellido`, `cedula`, `fecha_nacimiento`, `id_cargo`, `id_sexo`, `id_salario`, `id_dep`) VALUES
-(1, 'Javier', 'Montesinos', 24223859, '1991-05-27', 1, 2, 1, 1);
+(2, 'Javier', 'Montesinos', 24223859, '1991-05-27', 1, 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -180,7 +180,11 @@ ALTER TABLE `Departamento`
 -- Indices de la tabla `Empleados`
 --
 ALTER TABLE `Empleados`
-  ADD PRIMARY KEY (`id_empleado`);
+  ADD PRIMARY KEY (`id_empleado`),
+  ADD UNIQUE KEY `fk_sexo` (`id_sexo`),
+  ADD UNIQUE KEY `fk_departament` (`id_dep`),
+  ADD UNIQUE KEY `fk_cargo` (`id_cargo`),
+  ADD UNIQUE KEY `fk_salario` (`id_salario`);
 
 --
 -- Indices de la tabla `Gerentes`
@@ -224,7 +228,7 @@ ALTER TABLE `Departamento`
 -- AUTO_INCREMENT de la tabla `Empleados`
 --
 ALTER TABLE `Empleados`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `Gerentes`
 --
@@ -245,6 +249,19 @@ ALTER TABLE `sexo`
 --
 ALTER TABLE `ubicacion`
   MODIFY `id_ubicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `Empleados`
+--
+ALTER TABLE `Empleados`
+  ADD CONSTRAINT `Empleados_ibfk_1` FOREIGN KEY (`id_dep`) REFERENCES `Departamento` (`id_departamento`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Empleados_ibfk_2` FOREIGN KEY (`id_salario`) REFERENCES `salario` (`id_salario`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Empleados_ibfk_3` FOREIGN KEY (`id_sexo`) REFERENCES `sexo` (`id_sexo`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Empleados_ibfk_4` FOREIGN KEY (`id_cargo`) REFERENCES `Cargos` (`id_cargo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
