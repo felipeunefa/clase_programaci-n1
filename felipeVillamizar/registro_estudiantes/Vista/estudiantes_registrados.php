@@ -2,6 +2,7 @@
      require_once "../Modelo/estudiantes.php"; 
 
     $estudiantesObj = new estudiantesM(); 
+    $data_estudiante = $estudiantesObj->get_estudiantes(); 
 ?> 
 
 <!DOCTYPE html> 
@@ -35,8 +36,6 @@
             <li class="active"><a href="index.php">Inicio</a></li>
             <li><a href="#Registrar">Registrar Estudiante</a></li>
             <li><a href="estudiantes_registrados.php">Estudiantes Registrados</a></li>
-            <li><a href="/">Xampp</a></li>
-            <li><a href="http://localhost/phpmyadmin/db_structure.php?server=1&db=registro_estudiantes&token=4321aa2099d6ed8d3c444e70f76b778b">Base de Datos</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -46,12 +45,39 @@
                 <img src="../imagenes/logo.jpg" alt="Logo Unefa" width="100px" height="100px"/>
             </div>
             <div class="col-md-10">
-                <div class="jumbotron">
-                    <h1 align="center">Ejemplo de un CRUD</h1>
-        <p>Este es un ejemplo de un CRUD de registro de estudiantes, para que los alumnos lo tomen como referencia para su poyecto de fin de semestre.</p>
-        <?php $estudiantesObj->get_count_estudiantes();?>
-        <a class="btn btn-lg btn-primary" href="//github.com/felipeunefa/clase_programaci-n1" role="button">Repositorio en Github</a>
-                </div>
+                <h1 align="center">Estudiantes Registrados</h1> 
+                 <table class="table table-striped" > 
+                        <tr> 
+                            <th> 
+                                Id 
+                            </th> 
+                            <th> 
+                                Nombre 
+                            </th> 
+                            <th> 
+                                Cédula 
+                            </th> 
+                            <th> 
+                                Direcci&oacute;n 
+                            </th> 
+                            <th> 
+                                Fecha de Nacimiento
+                            </th> 
+                        </tr><!-- /THEAD --> 
+
+                        <?php foreach ($data_estudiante as $row): ?> 
+
+                        <tr> 
+                            <td><?php echo $row['id_estudiantes']; ?></td> 
+                            <td><?php echo $row['nombre']; ?></td> 
+                            <td><?php echo $row['ci']; ?></td> 
+                            <td><?php echo $row['direccion']; ?></td> 
+                            <td><?php echo $row['fecha_nacimiento']; ?></td> 
+                        </tr><!-- /TROW --> 
+                     
+                        <?php endforeach ?>     
+                              
+                    </table> 
             </div>
         </div>
     </div>
@@ -62,6 +88,5 @@
          Catedra: Programación 1 <br/> Universidad Nacional Experimental de la Fuerza Armada. </p>
       </div>
     </footer>
-    
  </body> 
  </html> 
