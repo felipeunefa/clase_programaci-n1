@@ -63,16 +63,24 @@
                             <th> 
                                 Fecha de Nacimiento
                             </th> 
+                            <th> 
+                                Sexo
+                            </th> 
+                            <th> 
+                                Carrera
+                            </th> 
                         </tr><!-- /THEAD --> 
 
                         <?php foreach ($data_estudiante as $row): ?> 
 
                         <tr> 
                             <td><?php echo $row['id_estudiantes']; ?></td> 
-                            <td><?php echo $row['nombre']; ?></td> 
+                            <td><?php echo $row['estudiante']; ?></td> 
                             <td><?php echo $row['ci']; ?></td> 
                             <td><?php echo $row['direccion']; ?></td> 
                             <td><?php echo $row['fecha_nacimiento']; ?></td> 
+                            <td><?php echo $row['sexo']; ?></td> 
+                            <td><?php echo utf8_encode($row['carrera']); ?></td> 
                         </tr><!-- /TROW --> 
                      
                         <?php endforeach ?>     
