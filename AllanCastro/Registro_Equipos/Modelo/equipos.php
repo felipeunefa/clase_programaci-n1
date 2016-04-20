@@ -10,9 +10,9 @@ class equiposM extends Conexion
 
     public function get_equipos() 
     { 
-        $result = $this->_db->query('SELECT * FROM equipos'); 
+        $result = $this->_db->query('SELECT * FROM Computadoras'); 
          
-        $estudiantes = $result->fetch_all(MYSQLI_ASSOC); 
+        $equipos = $result->fetch_all(MYSQLI_ASSOC); 
          
         return $equipos; 
     } 
