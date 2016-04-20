@@ -108,7 +108,7 @@
                 <td><?php echo $row['cedula']; ?></td> 
                 <td><?php echo $row['fecha_nacimiento']; ?></td>
                 <td><?php echo $row['id_cargo']; ?></td> 
-                <td><?php echo $row['id_sexo']; ?></td> 
+                <td><?php echo $row['genero']; ?></td> 
                 <td><?php echo $row['id_salario']; ?></td> 
                 <td><?php echo $row['id_dep']; ?></td> 
                 

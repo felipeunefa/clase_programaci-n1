@@ -23,7 +23,7 @@ class empleados extends Conexion {
     }
     
     public function getEmpleados() {
-        $result = $this->_db->query('SELECT * FROM Empleados');
+        $result = $this->_db->query('SELECT tl1.*, tl2.nombre as genero FROM Empleados as tl1 JOIN sexo as tl2');
         
         $empleados = $result->fetch_all(MYSQLI_ASSOC);
         
