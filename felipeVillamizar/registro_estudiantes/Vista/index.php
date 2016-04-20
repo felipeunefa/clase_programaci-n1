@@ -20,13 +20,13 @@
  <body>
      <div class="container">
          <?php 
-          $estructura->get_menu()
+          $estructura->get_menu(1)
          ?>
 
         <div class="row">
             <div class="col-md-2">
                 <?php 
-                $estructura->get_logo('')
+                $estructura->get_logo('blancoNegro')
             ?>
             </div>
             <div class="col-md-10">

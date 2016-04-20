@@ -7,7 +7,21 @@ class Estructura{
             <script src="../biblotecas/bootstrap-3.3.6/js/bootstrap.min.js"></script> ';  
         }
         
-    public function get_menu(){
+    public function get_menu($posicion){
+        $index="";
+        $registrados="";
+        $registrar="";
+        switch($posicion){
+            case 1:
+                $index='class="active"';
+                break;
+            case 2:
+                $registrar='class="active"';
+                break;
+            case 3:
+                $registrados='class="active"';
+                break;
+            }
         echo '<nav class="navbar navbar-inverse ">
       <div class="container">
         <div class="navbar-header">
@@ -23,9 +37,9 @@ class Estructura{
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Inicio</a></li>
-            <li ><a href="#Registrar">Registrar Estudiante</a></li>
-            <li ><a href="estudiantes_registrados.php">Estudiantes Registrados</a></li>
+            <li '.$index.' ><a href="index.php">Inicio</a></li>
+            <li '.$registrar.' ><a href="registrar_estudiantes.php">Registrar Estudiante</a></li>
+            <li  '.$registrados.' ><a href="estudiantes_registrados.php">Estudiantes Registrados</a></li>
             <li ><a href="/">Xampp</a></li>
             <li ><a href="http://localhost/phpmyadmin/db_structure.php?server=1&db=registro_estudiantes&token=4321aa2099d6ed8d3c444e70f76b778b">Base de Datos</a></li>
           </ul>
