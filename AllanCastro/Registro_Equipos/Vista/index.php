@@ -19,7 +19,7 @@
  <body
      <div class="container">
          <?php 
-          $estructura->get_menu()
+          $estructura->get_menu(1)
          ?>
 
         <div class="row">
