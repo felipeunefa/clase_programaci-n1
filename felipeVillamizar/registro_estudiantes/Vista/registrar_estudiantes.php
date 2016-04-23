@@ -1,10 +1,14 @@
 <?php   
      require_once "../Modelo/estudiantes.php";
     require_once "../Modelo/estructura.php";  
+    require_once "../Modelo/sexo.php";  
+    require_once "../Modelo/carreras.php";  
 
     $estudiantesObj = new estudiantesM(); 
     $data_estudiante = $estudiantesObj->get_estudiantes();
     $estructura = new Estructura(); 
+    $sexoObj = new SexoM(); 
+    $carreraObj = new Carrera(); 
  
 ?> 
 
@@ -27,20 +31,34 @@
         <div class="row">
             <div class="col-md-2">
                  <?php 
-                $estructura->get_logo('blancoNegro')
+                $estructura->get_logo('escudo')
             ?>
             </div>
             <div class="col-md-10">
-                <h1 align="center">Registrar Esudiantes</h1> 
+<!--
+                Empieza el panel
+-->
+                <div class="panel panel-info">
+                    <div class="panel-heading" >
+                        <h1 align="center">Registrar Estudiantes</h1> 
+                    </div>
+<!--
+                    empieza el formulario
+-->
+                <form id="form_re"
+                  enctype="multipart/form-data"
+                  >
+<!--
+                  abre el body del panel
+-->
+                <div class="panel-body">
 <!--
                 inicio de campo nombre
 -->
-                <div class="form-group">
+                <div class="form-group ">
                  <label>Nombre</label>
              <div class="input-group col-xs-9">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                <form id="form_re"
-                  enctype="multipart/form-data">
                   <input
                             type="text"
                             class="form-control input-lg"
@@ -108,6 +126,30 @@
                 
             </div>
             </div>
+            
+             <?php 
+                $sexoObj->get_radio();
+                $carreraObj->get_select();
+            ?>
+<!--
+                  cierra el div body del panel
+-->
+                  </div>
+<!--
+                  abre el pie del panel
+-->
+            <div class="panel-footer" align="center">
+                <button type="button" class="btn btn-info"> Guardar</button>
+            </div>
+<!--
+                  cierra el div pie del panel
+                  
+                  cierra el div panel
+-->
+                  </div>
+<!--
+                termina el formulario
+-->
                   </form>
             </div>
         </div>
