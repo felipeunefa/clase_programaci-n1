@@ -1,53 +1,48 @@
 <?php   
-     require_once "../Modelo/casa.php"; 
-
-    $usuarioModel = new casa(); 
-    $a_users = $usuarioModel->get_casa(); 
+    
+    require '../Modelo/estructura.php';
+    $estructura = new Estructura();
+    
 ?> 
 
-<!DOCTYPE html> 
- <html> 
- <head> 
-     <title>Casas En Venta</title> 
- </head> 
- <body> 
-     <table > 
-            <tr> 
-                <td> 
-                    Id 
-                </td> 
-                <td > 
-                    Nombre 
-                </td> 
-                <td> 
-                    numero
-                </td> 
-                <td> 
-                    Propietario 
-                </td> 
-                <td> 
-                    Servicios 
-                </td> 
-                <td> 
-                    Caracteristicas 
-                </td> 
-                
-            </tr><!-- /THEAD --> 
-
-            <?php foreach ($a_users as $row): ?> 
-
-            <tr> 
-                <td><?php echo $row['id_casa']; ?></td> 
-                <td><?php echo $row['nombre']; ?></td> 
-                <td><?php echo $row['numero']; ?></td> 
-                <td><?php echo $row['id_propietario']; ?></td> 
-                <td><?php echo $row['id_servicios']; ?></td> 
-                <td><?php echo $row['id_caracteristicas']; ?></td> 
-            </tr><!-- /TROW --> 
-         
-            <?php endforeach ?>     
-                  
-        </table> 
-    
- </body> 
- </html> 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../biblotecas/jquery-1.12.2.min.js"></script>
+    <title>Casas</title>
+ 
+    <!-- CSS de Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <?php 
+    $estructura->getBootstrap();
+    ?>
+ 
+    <!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+      <div class="container">
+          <?php
+            $estructura->getNavbar();
+          ?>
+      <img src="../imagenes/Header-RESIDENCIAL-HUALAMÁ-CHAPELTIQUE.jpg" alt="..." class="img-thumbnail">
+          <?php 
+            $estructura->getTabla();
+           ?>   
+           
+    <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+ 
+    <!-- Todos los plugins JavaScript de Bootstrap (también puedes
+         incluir archivos JavaScript individuales de los únicos
+         plugins que utilices) -->
+    <script src="js/bootstrap.min.js"></script>
+      </div>
+  </body>
+</html>
