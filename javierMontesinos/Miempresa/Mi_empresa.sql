@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-03-2016 a las 08:00:44
+-- Tiempo de generación: 27-04-2016 a las 19:40:38
 -- Versión del servidor: 10.1.10-MariaDB
--- Versión de PHP: 7.0.4
+-- Versión de PHP: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -28,16 +28,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `Cargos` (
   `id_cargo` int(11) NOT NULL,
-  `nombre` varchar(200) NOT NULL,
-  `id_salario` int(11) NOT NULL
+  `nombreCargo` varchar(200) NOT NULL,
+  `id_salario` int(11) NOT NULL,
+  `estado` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `Cargos`
 --
 
-INSERT INTO `Cargos` (`id_cargo`, `nombre`, `id_salario`) VALUES
-(1, 'Gerente General', 1);
+INSERT INTO `Cargos` (`id_cargo`, `nombreCargo`, `id_salario`, `estado`) VALUES
+(1, 'Gerente General', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -47,17 +48,19 @@ INSERT INTO `Cargos` (`id_cargo`, `nombre`, `id_salario`) VALUES
 
 CREATE TABLE `Departamento` (
   `id_departamento` int(11) NOT NULL,
-  `nombre` varchar(11) NOT NULL,
+  `nombreDep` varchar(11) NOT NULL,
   `id_gerente` int(11) NOT NULL,
-  `id_ubicacion` int(11) NOT NULL
+  `id_ubicacion` int(11) NOT NULL,
+  `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `Departamento`
 --
 
-INSERT INTO `Departamento` (`id_departamento`, `nombre`, `id_gerente`, `id_ubicacion`) VALUES
-(1, 'Ventas', 1, 1);
+INSERT INTO `Departamento` (`id_departamento`, `nombreDep`, `id_gerente`, `id_ubicacion`, `estado`) VALUES
+(1, 'Ventas', 1, 1, 1),
+(2, 'Cobranza', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -67,22 +70,25 @@ INSERT INTO `Departamento` (`id_departamento`, `nombre`, `id_gerente`, `id_ubica
 
 CREATE TABLE `Empleados` (
   `id_empleado` int(11) NOT NULL,
-  `nombre` varchar(200) NOT NULL,
-  `apellido` varchar(200) NOT NULL,
-  `cedula` int(11) NOT NULL,
+  `nombreEmpleado` varchar(200) NOT NULL,
+  `apellidoEmpleado` varchar(200) NOT NULL,
+  `cedulaEmpleado` int(11) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
-  `id_cargo` int(11) NOT NULL,
-  `id_sexo` int(11) NOT NULL,
-  `id_salario` int(11) NOT NULL,
-  `id_dep` int(11) NOT NULL
+  `id_cargo` int(20) NOT NULL,
+  `id_sexo` int(20) NOT NULL,
+  `id_salario` int(20) NOT NULL,
+  `id_dep` int(20) NOT NULL,
+  `estado` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `Empleados`
 --
 
-INSERT INTO `Empleados` (`id_empleado`, `nombre`, `apellido`, `cedula`, `fecha_nacimiento`, `id_cargo`, `id_sexo`, `id_salario`, `id_dep`) VALUES
-(2, 'Javier', 'Montesinos', 24223859, '1991-05-27', 1, 2, 1, 1);
+INSERT INTO `Empleados` (`id_empleado`, `nombreEmpleado`, `apellidoEmpleado`, `cedulaEmpleado`, `fecha_nacimiento`, `id_cargo`, `id_sexo`, `id_salario`, `id_dep`, `estado`) VALUES
+(1, 'Brenda', 'Sanches', 18944387, '2000-04-06', 1, 1, 1, 1, 1),
+(5, 'Javier', 'Montesinos', 24223859, '1991-05-27', 1, 2, 1, 1, 1),
+(6, 'Juan', 'Perez', 16144378, '1991-01-10', 1, 2, 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -111,15 +117,16 @@ INSERT INTO `Gerentes` (`id_gerente`, `id_empleado`, `id_departamento`) VALUES
 
 CREATE TABLE `salario` (
   `id_salario` int(11) NOT NULL,
-  `monto` int(11) NOT NULL
+  `montoSalario` int(11) NOT NULL,
+  `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `salario`
 --
 
-INSERT INTO `salario` (`id_salario`, `monto`) VALUES
-(1, 50000);
+INSERT INTO `salario` (`id_salario`, `montoSalario`, `estado`) VALUES
+(1, 50000, 1);
 
 -- --------------------------------------------------------
 
@@ -129,16 +136,17 @@ INSERT INTO `salario` (`id_salario`, `monto`) VALUES
 
 CREATE TABLE `sexo` (
   `id_sexo` int(11) NOT NULL,
-  `nombre` varchar(10) NOT NULL
+  `nombreSexo` varchar(10) NOT NULL,
+  `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `sexo`
 --
 
-INSERT INTO `sexo` (`id_sexo`, `nombre`) VALUES
-(1, 'Femenino'),
-(2, 'Masculino');
+INSERT INTO `sexo` (`id_sexo`, `nombreSexo`, `estado`) VALUES
+(1, 'Femenino', 1),
+(2, 'Masculino', 1);
 
 -- --------------------------------------------------------
 
@@ -181,10 +189,10 @@ ALTER TABLE `Departamento`
 --
 ALTER TABLE `Empleados`
   ADD PRIMARY KEY (`id_empleado`),
-  ADD UNIQUE KEY `fk_sexo` (`id_sexo`),
-  ADD UNIQUE KEY `fk_departament` (`id_dep`),
-  ADD UNIQUE KEY `fk_cargo` (`id_cargo`),
-  ADD UNIQUE KEY `fk_salario` (`id_salario`);
+  ADD KEY `fk_sexo` (`id_sexo`) USING BTREE,
+  ADD KEY `fk_salario` (`id_salario`) USING BTREE,
+  ADD KEY `fk_cargo` (`id_cargo`) USING BTREE,
+  ADD KEY `fk_departament` (`id_dep`) USING BTREE;
 
 --
 -- Indices de la tabla `Gerentes`
@@ -223,12 +231,12 @@ ALTER TABLE `Cargos`
 -- AUTO_INCREMENT de la tabla `Departamento`
 --
 ALTER TABLE `Departamento`
-  MODIFY `id_departamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_departamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `Empleados`
 --
 ALTER TABLE `Empleados`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `Gerentes`
 --

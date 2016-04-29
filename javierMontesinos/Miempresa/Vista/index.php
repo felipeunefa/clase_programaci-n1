@@ -1,8 +1,7 @@
 <?php   
-     require_once "../Modelo/empleados.php"; 
-     require_once "../Modelo/estructura.php"; 
-    
-    $structura = new Estructura();
+     require_once "../Modelo/Estructura.php"; 
+     require_once "../Modelo/Empleados.php"; 
+     $structura = new Estructura();
    
 ?> 
 
@@ -13,41 +12,20 @@
      <?php $structura->getBootstrap();?>
  </head> 
  <body>
-     !-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <?php $structura->getHeader(); ?>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <?php $structura->getNavbar(); ?>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+
+ <nav class="navbar navbar-inverse">
+  <?php $structura->getNavbar(1);?>
+</nav>
      
     <!-- Page Content -->
     <div class="container">
-
+        
         <!-- Portfolio Item Heading -->
         <div class="row">
+            <hr>
             <div class="col-lg-12">
-            	<hr />
-                <h1 class="page-header">Excelencia Educativa
-                    <small>Abierta al Pueblo</small>
-                </h1>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Portfolio Item Row -->
-        <div class="row">
-
-            <div class="col-md-8">
-                <img class="img-responsive" src="img/750x500.jpg" alt="UNEFA" width="750" height="500">
-            </div>
-
-            <div class="col-md-4">
-                <p><img src="img/ANIVERSARIO.png" alt="Aniversario" width="250" height="250" /></p>
+                <div class="col-md-4">
+                    <p><img class="img-responsive"src="img/ANIVERSARIO.png" alt="Aniversario" width="250" height="250" /></p>
                 <h3>Detalles del Proyecto</h3>
                 <ul>
                     <li>Creaci&oacute;n de nuestro Patron MVC</li>
@@ -55,8 +33,42 @@
                     <li>Vista</li>
                     <li>Controlador</li>
                 </ul>
+                <button type="button" class="btn btn-info btn-lg" id="empleadosBtn">Empleados</button>
+                <button type="button" class="btn btn-info btn-lg" id="registroBtn">Registrar</button>
+            </div> 
+                <img class="img-responsive" src="../Vista/img/750x500.jpg" width="700" height="350"/>
+                <h1 class="page-header">Excelencia Educativa
+                    <small>Abierta al Pueblo</small>
+                </h1>
             </div>
-
+            <hr>
+        </div>
+        <!-- /.row -->
+        
+        <!-- Portfolio Item Row -->
+        <div class="row">
+          
+            <!--Modal Empleados -->
+            <?php $structura->getModalEmpleados()?>
+            <script>
+            $(document).ready(function(){
+                $("#empleadosBtn").click(function(){
+                    $("#empleadosModal").modal();
+                });
+            });
+            </script>
+  
+            <!-- Fin Modal Empleados-->
+            <!--Modal Registro -->
+            <?php $structura->getModalRegistro()?>
+            <script>
+            $(document).ready(function(){
+                $("#registroBtn").click(function(){
+                    $("#registroModal").modal();
+                });
+            });
+            </script>
+            <!-- Fin Modal Registro-->
         </div>
         <!-- /.row -->
 
@@ -64,20 +76,22 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <h3 class="page-header">Empleados</h3>
+                <?php $structura->getSlider();?>
+                <script src="js/jquery.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+                <script>
+                    $(document).ready(function(){
+                        $('.myCarousel').carousel()
+                    });
+                </script>
             </div>
-
-           <?php $structura->getTabla();?>
-
- 
-
             
-
+            
         </div>
         <!-- /.row -->
 
         <hr>
-
+        
         <!-- Footer -->
         <?php $structura->getFooter();?>
     </div>
