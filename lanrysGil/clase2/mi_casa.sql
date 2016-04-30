@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 19, 2016 at 11:27 pm
+-- Generation Time: Apr 24, 2016 at 11:21 pm
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.4
 
@@ -33,6 +33,14 @@ CREATE TABLE `caracteristicas` (
   `num_estacionamiento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `caracteristicas`
+--
+
+INSERT INTO `caracteristicas` (`id_caracteristicas`, `num_cuartos`, `num_baños`, `num_estacionamiento`) VALUES
+(1, 2, 1, 1),
+(2, 4, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -41,12 +49,19 @@ CREATE TABLE `caracteristicas` (
 
 CREATE TABLE `casa` (
   `id_casa` int(11) NOT NULL,
-  `nombre` int(11) NOT NULL,
+  `nombreCasa` varchar(50) NOT NULL,
   `numero` int(11) NOT NULL,
   `id_propietario` int(11) NOT NULL,
   `id_servicios` int(11) NOT NULL,
   `id_caracteristicas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `casa`
+--
+
+INSERT INTO `casa` (`id_casa`, `nombreCasa`, `numero`, `id_propietario`, `id_servicios`, `id_caracteristicas`) VALUES
+(3, 'Mirafina', 2012, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -56,11 +71,19 @@ CREATE TABLE `casa` (
 
 CREATE TABLE `propietarios` (
   `id_propietario` int(11) NOT NULL,
-  `nombre` varchar(40) NOT NULL,
+  `nombrePropietario` varchar(40) NOT NULL,
   `apellido` varchar(40) NOT NULL,
   `cedula` int(11) NOT NULL,
   `telefono` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `propietarios`
+--
+
+INSERT INTO `propietarios` (`id_propietario`, `nombrePropietario`, `apellido`, `cedula`, `telefono`) VALUES
+(1, 'Juan', 'Perez', 123456789, 414123456),
+(2, 'Omar', 'Carrasquel', 987654321, 631460711);
 
 -- --------------------------------------------------------
 
@@ -70,10 +93,18 @@ CREATE TABLE `propietarios` (
 
 CREATE TABLE `servicios` (
   `id_servicios` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
+  `nombreServicio` varchar(50) NOT NULL,
   `precio` float NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `servicios`
+--
+
+INSERT INTO `servicios` (`id_servicios`, `nombreServicio`, `precio`, `status`) VALUES
+(1, 'Agua', 1500, 1),
+(2, 'Electricidad', 2000, 1);
 
 --
 -- Indexes for dumped tables
@@ -114,22 +145,22 @@ ALTER TABLE `servicios`
 -- AUTO_INCREMENT for table `caracteristicas`
 --
 ALTER TABLE `caracteristicas`
-  MODIFY `id_caracteristicas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_caracteristicas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `casa`
 --
 ALTER TABLE `casa`
-  MODIFY `id_casa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_casa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `propietarios`
 --
 ALTER TABLE `propietarios`
-  MODIFY `id_propietario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_propietario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `servicios`
 --
 ALTER TABLE `servicios`
-  MODIFY `id_servicios` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_servicios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

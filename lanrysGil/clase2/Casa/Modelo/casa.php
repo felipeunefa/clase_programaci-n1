@@ -10,7 +10,8 @@ class casa extends Conexion
 
     public function get_casa() 
     { 
-        $result = $this->_db->query('SELECT * FROM casa'); 
+        $result = $this->_db->query('SELECT *, nombrePropietario, nombreServicio, num_cuartos as caract
+                                     FROM casa, propietarios, servicios, caracteristicas'); 
          
         $casa = $result->fetch_all(MYSQLI_ASSOC); 
          
