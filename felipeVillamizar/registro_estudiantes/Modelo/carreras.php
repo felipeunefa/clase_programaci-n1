@@ -10,7 +10,7 @@ class Carrera extends Conexion {
                     <label for="sel1">Carrera:</label>
                     <div class="input-group col-xs-9">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-copyright-mark"></span></span>
-                  <select class="form-control" id="sel1">
+                  <select class="form-control" name="carrera" id="sel1">
                   <option >Seleccione..</option>';
         foreach ($carreraData as $carrera):
             $select=$select. '<option value="'.$carrera['id_carrera'].'">'.$carrera['nombre'].'</option>';
