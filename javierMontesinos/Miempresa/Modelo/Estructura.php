@@ -118,22 +118,26 @@ class Estructura {
           <h4><span class="glyphicon glyphicon-lock"></span> Registro</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form">
+          <form id="form_emp"
+                  enctype="multipart/form-data"
+                  action="../Controllers/registrarController.php"
+                  method="POST"
+                  >
             <div class="form-group">
-              <label for="nombreEmpleado"><span class="glyphicon glyphicon-user"></span> Nombre</label>
-              <input type="text" class="form-control" id="nombreEmpleado" placeholder="Juan">
+              <label for="nombre"><span class="glyphicon glyphicon-user"></span> Nombre</label>
+              <input type="text" class="form-control" id="nombre" name ="nombre" placeholder="Ej: Juan">
             </div>
             <div class="form-group">
-              <label for="apellidoEmpleado"><span class="glyphicon glyphicon-user"></span> Apellido</label>
-              <input type="text" class="form-control" id="apellidoEmpleado" placeholder="Perez">
+              <label for="apellido"><span class="glyphicon glyphicon-user"></span> Apellido</label>
+              <input type="text" class="form-control" id="apellidoEmpleado" name ="apellido" placeholder="Perez">
             </div>
             <div class="form-group">
-              <label for="cedulaEmpleado"><span class="glyphicon glyphicon-user"></span> Cedula de identidad</label>
-              <input type="Number" class="form-control" id="cedulaEmpleado" placeholder="12345678">
+              <label for="cedula"><span class="glyphicon glyphicon-user"></span> Cedula de identidad</label>
+              <input type="Number" class="form-control" id="cedula" name ="cedula" placeholder="12345678">
             </div>
             <div class="form-group">
               <label for="nacimiento"><span class="glyphicon glyphicon-user"></span> Fecha de Nacimiento</label>
-              <input type="Date" class="form-control" id="nacimiento" placeholder="12345678">
+              <input type="Date" class="form-control" id="nacimiento" name ="nacimiento" placeholder="12345678">
             </div>
             <div class="form-group">
 
@@ -237,9 +241,9 @@ class Estructura {
           </ol>
           <!-- Carousel items -->
           <div class="carousel-inner">
-            <div class="active item"><img  src="img/banner598x374-1.jpg" alt="banner1" /></div>
-            <div class="item"><img  src="img/banner598x374-2.jpg" alt="banner2" /></div>
-            <div class="item"><img  src="img/banner598x374-3.jpg" alt="banner3" /></div>
+            <div class="active item"><img  src="../Vista/img/750x500.jpg" alt="Imagen 1" /></div>
+            <div class="item"><img  src="../Vista/img/formacion.jpg" alt="banner2" /></div>
+            <div class="item"><img  src="../Vista/img/graduacion.jpg" alt="banner3" /></div>
             <div class="item"><img  src="img/banner598x374-4.jpg" alt="banner4" /></div>
             <div class="item"><img  src="img/banner598x374-5.jpg" alt="banner5" /></div>
           </div>

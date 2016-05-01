@@ -31,19 +31,33 @@ class Empleados extends Conexion {
         
         return $empleados;
     }
-    public function setEmpleados() {
+    
+    public function getCountEmpleados() {
         
-        if ( !empty($_GET["como"]) && is_array($_GET["como"]) ) { 
-            echo "<ul>";
-            foreach ( $_GET["como"] as $como ) { 
-                    echo "<li>";
-                    echo $como; 
-                    echo "</li>"; 
-             }
-             echo "</ul>";
-        }
-        $insert = $this->_db->query('INSERT INTO Empleados (id_empleado, nombreEmpleado, apellidoEmpleado, cedulaEmpleado, fecha_nacimiento, id_cargo, id_sexo, id_salario, id_dep) '
-                . '                  VALUES (NULL, Juan, Perez, 16144378, 1991-01-10, 1, 2, 1, 2)');
+        $result = $this->_db->query('SELECT COUNT(*) as total FROM Empleados'); 
+         
+        $count_empleados = $result->fetch_array(MYSQLI_ASSOC); 
+         
+        printf("<span class='badge'>".$count_empleados['total']."</span>"); 
         
+    }
+    public function setEmpleados($post) {
+        
+         if(isset($post) != NULL){
+            $nombre =strip_tags($post['nombre']);
+            $apellido =strip_tags($post['apellido']);
+            $cedula=strip_tags($post['cedula']);
+            $fecha=strip_tags( $post['nacimiento']);
+            $sexo=strip_tags($post['sexo']);
+            $cargo=strip_tags( $post['cargo']);
+            $dep=strip_tags( $post['dep']);
+            $salario=strip_tags( $post['salario']);
+            $query="INSERT INTO Empleados 
+            (nombreEmpleado, apellidoEmpleado, cedulaEmpleado, fecha_nacimiento, id_cargo, id_sexo, id_salario, id_dep) 
+            VALUES ('$nombre','$apellido','$cedula','$fecha', '$cargo',  '$sexo', '$salario', '$dep')";
+           $exit=$this->_db->query($query) or die('Error de sql del metodo setEmpleados: '.$this->_db->error);
+           header('Location: ../Vista/index.php');
+         }
+         
     }
 }
