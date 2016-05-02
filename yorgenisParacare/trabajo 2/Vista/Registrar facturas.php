@@ -1,14 +1,12 @@
 <?php   
      require_once "../Modelo/facturacion.php";
     require_once "../Modelo/estructura.php";  
-    require_once "../Modelo/sexo.php";  
-    require_once "../Modelo/carreras.php";  
+      
 
-    $estudiantesObj = new facturacionM(); 
-    $data_estudiante = $facturacionObj->get_facturacion();
+    $facturacionMObj = new facturacionM(); 
+    
     $estructura = new Estructura(); 
-    $sexoObj = new SexoM(); 
-    $carreraObj = new Carrera(); 
+    
  
 ?> 
 
