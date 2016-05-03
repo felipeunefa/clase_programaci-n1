@@ -21,15 +21,12 @@ class Estructura {
 
                break;
            case 2:
-               $registro = 'class="active"';
-
-               break;
-           case 3:
                $empleados = 'class="active"';
 
                break;
 
            default:
+               $index = 'class="active"';
                break;
        }
        echo '<div class="container-fluid">
@@ -38,7 +35,6 @@ class Estructura {
     </div>
     <ul class="nav navbar-nav">
       <li '.$index.'><a href="index.php">Inicio</a></li>
-      <li '.$registro.'.><a href="registro.php">Registro</a></li> 
       <li '.$empleados.'><a href="empleados.php">Empleados</a></li> 
     </ul>
   </div>';
@@ -72,6 +68,9 @@ class Estructura {
         echo '<th>';
         echo 'Salario';
         echo '</th>';
+        echo '<th>';
+        echo 'Acciones';
+        echo '</th>';
         foreach ($a_users as $row):
         echo '<tr>';
         echo '<td>';
@@ -95,8 +94,11 @@ class Estructura {
         echo '<td>';
         echo $row['nombreDep'];
         echo '</td>';
-         echo '<td>';
+        echo '<td>';
         echo $row['montoSalario'];
+        echo '</td>';
+        echo '<td>';
+        echo 'Editar / Eliminar';
         echo '</td>';
         echo '</tr>';
         endforeach;
