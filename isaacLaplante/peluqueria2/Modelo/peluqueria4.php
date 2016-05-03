@@ -16,6 +16,19 @@ class peluqueria4M extends Conexion
          
         return $peluqueria4; 
     } 
+	public function registro_atencion($post){
+         $nombre =strip_tags($post['nombre']);
+         $cedula=strip_tags($post['cedula']);
+         $telefono=strip_tags( $post['telefono']);
+         $fecha_cita=strip_tags($post['fecha_cita']);
+         $corte=strip_tags( $post['corte']);
+         $salon=strip_tags( $post['salon']);
+         $query="INSERT INTO cliente
+         (nombre, cedula, telefono, fecha_cita,id_corte,id_salon,id_empleada) 
+         VALUES ('$nombre','$cedula','$telefono', '$fecha_cita','$corte','$salon','$empleada')";
+        $exit=$this->_db->query($query) or die('Error de sql del metodo registrar_atencion: '.$this->_db->error);
+        header('Location: ../Vista/registrar_clientes.php');
+        } 
     
     public function get_count_peluqueria4() 
     { 
