@@ -47,13 +47,13 @@ CREATE TABLE IF NOT EXISTS `consulta` (
 -- Estructura de tabla para la tabla `consutorio`
 --
 
-CREATE TABLE IF NOT EXISTS `consutorio` (
-  `idconsutorio` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `consultorio` (
+  `idconsultorio` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
   `direccion` varchar(45) DEFAULT NULL,
   `rif` varchar(45) DEFAULT NULL,
   `encargado` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idconsutorio`)
+  PRIMARY KEY (`idconsultorio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `paciente` (
 ALTER TABLE `consulta`
   ADD CONSTRAINT `fk_consulta_paciente` FOREIGN KEY (`cedula_paciente`) REFERENCES `paciente` (`cedula`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_consulta_medico1` FOREIGN KEY (`id_medico`) REFERENCES `medico` (`idmedico`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_consulta_consutorio1` FOREIGN KEY (`idconsutorio`) REFERENCES `consutorio` (`idconsutorio`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_consulta_consultorio1` FOREIGN KEY (`idconsultorio`) REFERENCES `consultorio` (`idconsultorio`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
