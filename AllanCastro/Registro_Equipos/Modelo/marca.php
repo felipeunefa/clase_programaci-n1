@@ -10,7 +10,7 @@ class Marca extends Conexion {
                     <label for="sel1">Marca:</label>
                     <div class="input-group col-xs-9">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-                  <select class="form-control" name="marca" id="sel1">
+                  <select class="form-control" name="marca" id="marca">
                   <option >Seleccione..</option>';
         foreach ($marcaData as $Marca):
             $select=$select. '<option value="'.$Marca['id_marca'].'">'.$Marca['nombre'].'</option>';
