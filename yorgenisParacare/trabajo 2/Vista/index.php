@@ -2,7 +2,7 @@
      require_once "../Modelo/facturacion.php"; 
      require_once "../Modelo/estructura.php"; 
 
-    $facturacionObj = new facturacion(); 
+    $facturaObj = new facturaM(); 
     $estructura = new Estructura(); 
 	
 ?>
@@ -33,7 +33,7 @@
                 <div class="jumbotron">
                     <h1 align="center">Ejemplo de un CRUD</h1>
         <p>Este es un ejemplo de un CRUD de registro de estudiantes, para que los alumnos lo tomen como referencia para su poyecto de fin de semestre.</p>
-        <?php $facturacionObj->get_count_facturacion();?>
+        <?php $facturaObj->get_count_factura();?>
        
 	   <a class="btn btn-lg btn-primary" href="//github.com/felipeunefa/clase_programaci-n1" role="button"><span class="glyphicon glyphicon-check"></span>Repositorio en Github</a>
                 </div>

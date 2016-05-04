@@ -1,11 +1,13 @@
 <?php   
      require_once "../Modelo/facturacion.php";
     require_once "../Modelo/estructura.php";  
-      
-
-    $facturacionMObj = new facturacionM(); 
-    
+    require_once "../Modelo/numfactura.php";  
+    require_once "../Modelo/detalles_de_factura.php";  
+    $facturaObj = new facturaM(); 
+    $data_facturas = $facturaObj->get_Factura();
     $estructura = new Estructura(); 
+    $numfacturaObj = new NumfacturaM(); 
+    $Detalle_de_facturaObj = new Detalle_de_factura(); 
     
  
 ?> 
@@ -126,8 +128,8 @@
             </div>
             
              <?php 
-                $sexoObj->get_radio();
-                $carreraObj->get_select();
+                $numfacturaObj->get_radio();
+                $Detalle_de_facturaObj->get_select();
             ?>
 <!--
                   cierra el div body del panel
