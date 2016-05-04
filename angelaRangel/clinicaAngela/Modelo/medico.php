@@ -11,7 +11,7 @@ class medicoM extends Conexion {
                     <label >medico:</label>';
         foreach ($medico as $row):
             $radio=$radio.'<div class="radio">
-  <label><input type="radio" name="sexo" value="'.$row['idmedico'].'">'.$row['nombre'].'</label>
+  <label><input type="radio" name="medico" value="'.$row['idmedico'].'">'.$row['nombre'].'</label>
 </div>';
         endforeach;
         $radio=$radio.'</div>';

@@ -32,8 +32,8 @@
             <div class="col-md-10">
                 <div class="jumbotron">
                     <h1 align="center">Ejemplo de un CRUD</h1>
-        <p>Este es un ejemplo de un CRUD de registro de estudiantes, para que los alumnos lo tomen como referencia para su poyecto de fin de semestre.</p>
-        <?php $estudiantesObj->get_count_estudiantes();?>
+        <p> registro de clinica .</p>
+        <?php $consultorioObj->get_count_consultorio();?>
         <a class="btn btn-lg btn-primary" href="//github.com/felipeunefa/clase_programaci-n1" role="button"><span class="glyphicon glyphicon-check"></span>Repositorio en Github</a>
                 </div>
             </div>

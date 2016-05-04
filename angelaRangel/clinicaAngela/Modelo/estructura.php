@@ -59,13 +59,8 @@ class Estructura{
     public function get_logo($tipo){
         switch ($tipo) {
             case 'escudo':
-                echo '<img src="../imagenes/logoEscudo.jpg" alt="Logo Unefa" width="100px" height="100px"/>';
-                break; 
-            case 'blancoNegro':
-                echo '<img src="../imagenes/logo_bn.jpg" alt="Logo Unefa" width="100px" height="100px"/>';
-                break; 
-            default:
-                echo '<img src="../imagenes/logo.jpg" alt="Logo Unefa" width="100px" height="100px"/>';
+                
+                echo '<img src="../imagenes/logo.png" alt="Logo clinica" width="100px" height="100px"/>';
                 break; 
             }
          
