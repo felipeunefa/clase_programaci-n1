@@ -38,8 +38,8 @@ class Estructura{
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li '.$index.' ><a href="index.php">Inicio</a></li>
-            <li '.$registrar.' ><a href="registrar_facturas.php">Registrar facturas</a></li>
-            <li  '.$registrados.' ><a href="facturas_registrados.php">facturas Registrados</a></li>
+            <li '.$registrar.' ><a href="Registrar facturas.php">Registrar Facturas</a></li>
+            <li  '.$registrados.' ><a href="Facturas Registrados.php">Facturas Registradas</a></li>
             <li ><a href="/">Xampp</a></li>
             <li ><a href="http://localhost/phpmyadmin/db_structure.php?server=1&db=factura&token=a318d811633fe64f1968d9ac7e698342">Base de Datos</a></li>
           </ul>

@@ -1,14 +1,14 @@
 <?php   
      require_once "../Modelo/facturacion.php";
     require_once "../Modelo/estructura.php";  
-    require_once "../Modelo/sexo.php";  
-    require_once "../Modelo/carreras.php";  
-
-    $estudiantesObj = new facturacionM(); 
-    $data_estudiante = $facturacionObj->get_facturacion();
+    require_once "../Modelo/numfactura.php";  
+    require_once "../Modelo/detalles_de_factura.php";  
+    $facturaObj = new facturaM(); 
+    $data_facturas = $facturaObj->get_Factura();
     $estructura = new Estructura(); 
-    $sexoObj = new SexoM(); 
-    $carreraObj = new Carrera(); 
+    $numfacturaObj = new NumfacturaM(); 
+    $Detalle_de_facturaObj = new Detalle_de_factura(); 
+    
  
 ?> 
 
@@ -128,8 +128,8 @@
             </div>
             
              <?php 
-                $sexoObj->get_radio();
-                $carreraObj->get_select();
+                $numfacturaObj->get_radio();
+                $Detalle_de_facturaObj->get_select();
             ?>
 <!--
                   cierra el div body del panel
