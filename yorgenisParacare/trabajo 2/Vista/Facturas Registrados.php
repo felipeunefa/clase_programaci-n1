@@ -2,8 +2,8 @@
      require_once "../Modelo/facturacion.php";
     require_once "../Modelo/estructura.php";  
 
-    $estudiantesObj = new facturacionM(); 
-    $data_estudiante = $facturacionObj->get_faturacion();
+    $facturaObj = new FacturaM(); 
+    $data_facturas = $facturaObj->get_Factura();
     $estructura = new Estructura(); 
  
 ?> 
@@ -55,7 +55,7 @@
                             
                         </tr><!-- /THEAD --> 
 
-                        <?php foreach ($data_estudiante as $row): ?> 
+                        <?php foreach ($data_facturas as $row): ?> 
 
                         <tr> 
                             <td><?php echo $row['id_cliente']; ?></td> 

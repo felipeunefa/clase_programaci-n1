@@ -58,6 +58,9 @@ class Empleados extends Conexion {
            $exit=$this->_db->query($query) or die('Error de sql del metodo setEmpleados: '.$this->_db->error);
            header('Location: ../Vista/index.php');
          }
-         
+                  
+    }
+    public function updateEmpleados() {
+        
     }
 }
