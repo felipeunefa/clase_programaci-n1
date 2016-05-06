@@ -3,7 +3,7 @@
     require_once "../Modelo/estructura.php";  
 
     $facturaObj = new FacturaM(); 
-    $data_facturas = $facturaObj->get_Factura();
+    $data_cliente = $facturaObj->get_factura();
     $estructura = new Estructura(); 
  
 ?> 
@@ -35,35 +35,38 @@
                  <table class="table table-striped" > 
                         <tr> 
                             <th> 
-                                Id 
+                                Id cliente 
                             </th> 
                             <th> 
-                                Nit 
+                                Nombre 
                             </th> 
                             <th> 
-                                Nombre
+                                Apellido
                             </th> 
                             <th> 
-                                Apellido 
+                                Direcci&oacute;n 
                             </th> 
                             <th> 
-                                Direcci&oacute;n
+                                telefono
                             </th> 
                             <th> 
-                                Telefono
+                                Id detalle de factura
                             </th> 
-                            
+                            <th>
+							   id numfactura					
+														</th>
                         </tr><!-- /THEAD --> 
 
-                        <?php foreach ($data_facturas as $row): ?> 
+                        <?php foreach ($data_cliente as $row): ?> 
 
                         <tr> 
                             <td><?php echo $row['id_cliente']; ?></td> 
-                            <td><?php echo $row['nit']; ?></td> 
                             <td><?php echo $row['Nombre']; ?></td> 
-                            <td><?php echo $row['apellido']; ?></td> 
+                            <td><?php echo $row['Apellido']; ?></td> 
                             <td><?php echo $row['Direccion']; ?></td> 
-                            <td><?php echo $row['Telefono']; ?></td> 
+                            <td><?php echo $row['telefono']; ?></td> 
+                            <td><?php echo $row['Id_detalle_de_factura']; ?></td> 
+							<td><?php echo $row['id_numfactura']; ?></td>
                          <!--   <td><?php echo utf8_encode($row['carrera']); ?></td> 
                         </tr><!-- /TROW --> 
                      
