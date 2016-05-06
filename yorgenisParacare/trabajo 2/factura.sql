@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-04-2016 a las 02:02:58
--- Versión del servidor: 10.1.9-MariaDB
--- Versión de PHP: 5.6.15
+-- Tiempo de generación: 06-05-2016 a las 20:25:41
+-- Versión del servidor: 10.1.13-MariaDB
+-- Versión de PHP: 7.0.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -28,69 +28,58 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cliente` (
   `id_cliente` int(11) NOT NULL,
-  `nit` varchar(20) NOT NULL,
-  `Nombre` text NOT NULL,
-  `apellido` text NOT NULL,
-  `Direccion` varchar(100) NOT NULL,
-  `Telefono` int(11) NOT NULL
+  `Nombre` varchar(15) NOT NULL,
+  `Apellido` varchar(15) NOT NULL,
+  `Direccion` varchar(15) NOT NULL,
+  `telefono` int(20) NOT NULL,
+  `Id_detalle_de_factura` int(11) NOT NULL,
+  `id_numfactura` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`id_cliente`, `nit`, `Nombre`, `apellido`, `Direccion`, `Telefono`) VALUES
-(17498986, '233-3', 'yorgenis paracare', '', 'la pastora', 2880058);
+INSERT INTO `cliente` (`id_cliente`, `Nombre`, `Apellido`, `Direccion`, `telefono`, `Id_detalle_de_factura`, `id_numfactura`) VALUES
+(1, 'yorgenis', 'paracare', 'pastora', 1234567890, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `detalle de factura`
+-- Estructura de tabla para la tabla `detalles_de_factura`
 --
 
-CREATE TABLE `detalle de factura` (
-  `Detalle_factura` int(11) NOT NULL,
-  `Co_producto` varchar(20) NOT NULL,
-  `Producto` text NOT NULL,
-  `P_venta` int(11) NOT NULL,
-  `P_costo` int(11) NOT NULL,
-  `Cantidad` int(11) NOT NULL,
-  `Total` int(11) NOT NULL
+CREATE TABLE `detalles_de_factura` (
+  `id_detalles_de_factura` int(11) NOT NULL,
+  `nit` int(11) NOT NULL,
+  `estado` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `detalles_de_factura`
+--
+
+INSERT INTO `detalles_de_factura` (`id_detalles_de_factura`, `nit`, `estado`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `factura`
+-- Estructura de tabla para la tabla `numfactura`
 --
 
-CREATE TABLE `factura` (
-  `serie` text NOT NULL,
-  `numfactura` int(11) NOT NULL,
-  `nit` varchar(20) NOT NULL,
-  `fecha` date NOT NULL
+CREATE TABLE `numfactura` (
+  `id_numfactura` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `estado` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `factura`
+-- Volcado de datos para la tabla `numfactura`
 --
 
-INSERT INTO `factura` (`serie`, `numfactura`, `nit`, `fecha`) VALUES
-('a', 1, '233-3', '2016-04-24');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `producto`
---
-
-CREATE TABLE `producto` (
-  `ID_producto` varchar(20) NOT NULL,
-  `Co_producto` varchar(20) NOT NULL,
-  `Producto` text NOT NULL,
-  `P_costo` int(11) NOT NULL,
-  `P_venta` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `numfactura` (`id_numfactura`, `fecha`, `estado`) VALUES
+(1, '2016-05-06', 1);
 
 --
 -- Índices para tablas volcadas
@@ -100,32 +89,21 @@ CREATE TABLE `producto` (
 -- Indices de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`nit`),
-  ADD UNIQUE KEY `id_cliente` (`id_cliente`),
-  ADD UNIQUE KEY `id_cliente_4` (`id_cliente`),
-  ADD KEY `id_cliente_2` (`id_cliente`),
-  ADD KEY `id_cliente_3` (`id_cliente`);
+  ADD PRIMARY KEY (`id_cliente`),
+  ADD KEY `Id_detalle_de_factura` (`Id_detalle_de_factura`),
+  ADD KEY `id_numfactura` (`id_numfactura`);
 
 --
--- Indices de la tabla `detalle de factura`
+-- Indices de la tabla `detalles_de_factura`
 --
-ALTER TABLE `detalle de factura`
-  ADD PRIMARY KEY (`Co_producto`),
-  ADD KEY `Detalle_factura` (`Detalle_factura`);
+ALTER TABLE `detalles_de_factura`
+  ADD PRIMARY KEY (`id_detalles_de_factura`);
 
 --
--- Indices de la tabla `factura`
+-- Indices de la tabla `numfactura`
 --
-ALTER TABLE `factura`
-  ADD PRIMARY KEY (`numfactura`),
-  ADD KEY `nit` (`nit`);
-
---
--- Indices de la tabla `producto`
---
-ALTER TABLE `producto`
-  ADD PRIMARY KEY (`Co_producto`),
-  ADD UNIQUE KEY `ID_producto` (`ID_producto`);
+ALTER TABLE `numfactura`
+  ADD PRIMARY KEY (`id_numfactura`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -135,34 +113,17 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17498987;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT de la tabla `factura`
+-- AUTO_INCREMENT de la tabla `detalles_de_factura`
 --
-ALTER TABLE `factura`
-  MODIFY `numfactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `detalles_de_factura`
+  MODIFY `id_detalles_de_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- Restricciones para tablas volcadas
+-- AUTO_INCREMENT de la tabla `numfactura`
 --
-
---
--- Filtros para la tabla `detalle de factura`
---
-ALTER TABLE `detalle de factura`
-  ADD CONSTRAINT `detalle de factura_ibfk_1` FOREIGN KEY (`Detalle_factura`) REFERENCES `factura` (`numfactura`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `factura`
---
-ALTER TABLE `factura`
-  ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`nit`) REFERENCES `cliente` (`nit`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `producto`
---
-ALTER TABLE `producto`
-  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`ID_producto`) REFERENCES `detalle de factura` (`Co_producto`) ON DELETE CASCADE ON UPDATE CASCADE;
-
+ALTER TABLE `numfactura`
+  MODIFY `id_numfactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

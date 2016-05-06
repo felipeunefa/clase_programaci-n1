@@ -8,22 +8,22 @@ class FacturaM extends Conexion
         parent::__construct(); 
     } 
 
-    public function get_Factura() {
-        $result = $this->_db->query('select e.nombre as cliente,e.apellido,e.direccion,e.telefon,e.Id_cliente, s.co_producto as detalle_factura,c.fecha as factura
-                                    FROM cliente as e INNER JOIN detalle_factura s on e.dealle_factura= s.detalle_factura 
-                                    LEFT JOIN factura c ON e.numfactura=c.numfactura');
+    public function get_factura() {
+        $result = $this->_db->query('select 
+                                    * from cliente  
+                                     ')or die('Error de sql : '.$this->_db->error);
                                      
         
         $factura = $result->fetch_all(MYSQLI_ASSOC);
-        return $factura;
+        return $factura ;
     }
     public function get_count_factura() 
     { 
-        $result = $this->_db->query('SELECT COUNT(*) as total FROM factura'); 
+        $result = $this->_db->query('SELECT COUNT(*) as total FROM cliente'); 
          
-        $count_factura = $result->fetch_array(MYSQLI_ASSOC); 
+        $count_cliente = $result->fetch_array(MYSQLI_ASSOC); 
          
-        printf('<h3>Total de %d Facturas Registrados. </h3>',$count_factura['total']); 
+        printf('<h3>Total de %d cliente Registrados. </h3>',$count_cliente['total']); 
     } 
 } 
   ?> 
