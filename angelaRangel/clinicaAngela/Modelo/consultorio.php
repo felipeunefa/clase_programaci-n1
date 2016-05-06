@@ -1,7 +1,7 @@
 <?php  
 require_once "conexion.php"; 
 
-class consultorio extends Conexion 
+class Consultorio extends Conexion 
 {     
     public function __construct() 
     { 
