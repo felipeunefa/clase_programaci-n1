@@ -10,7 +10,7 @@ class salon extends Conexion {
                     <label for="sel1">Salon:</label>
                     <div class="input-group col-xs-9">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
-                  <select class="form-control" id="sel1">
+                  <select class="form-control" name="salon" id="sel1">
                   <option >Seleccione..</option>';
         foreach ($salonData as $salon):
             $select=$select. '<option value="'.$salon['id_salon'].'">'.$salon['direccion_salon'].'</option>';
