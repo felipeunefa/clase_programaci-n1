@@ -118,7 +118,7 @@
 		                  cierra el div body del panel
 		-->
 		        	</div>
-		        </form>
+
 <!--
                   abre el pie del panel
 -->
@@ -131,6 +131,7 @@
                   cierra el div panel
 -->
         </div>
+        </form>
 <!--
                 termina el formulario
 -->

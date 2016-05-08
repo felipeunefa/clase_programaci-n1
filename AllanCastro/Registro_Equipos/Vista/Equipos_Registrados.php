@@ -46,6 +46,9 @@
                 Marca
               </th>
               <th>
+                Modelo
+              </th>
+              <th>
                 Serie
               </th>
               <th>
@@ -55,9 +58,10 @@
             <?php foreach ($data_equipos as $row): ?>
               <tr>
                 <td><?php echo $row['id_computadora']; ?></td>
-                <td><?php echo $row['id_marca']; ?></td>
+                <td><?php echo $row['nombre']; ?></td>
+                <td><?php echo $row['modelo']; ?></td>
                 <td><?php echo $row['serie']; ?></td>
-                <td><?php echo $row['id_perfisferico']; ?></td>
+                <td><?php echo $row['descripcion']; ?></td>
               </tr>
             <?php endforeach ?>
           </table>
