@@ -18,7 +18,9 @@
          ?>
  </head> 
  <body>
-     <div class="container">
+  
+	 <body background="../imagenes/Chrysanthemum.jpg" alt="Chrysanthemum" width="1200px" height="1200px"/>
+	 <div class="container">
          <?php 
           $estructura->get_menu(1)
          ?>

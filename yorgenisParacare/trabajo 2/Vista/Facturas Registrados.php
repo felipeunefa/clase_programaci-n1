@@ -20,7 +20,8 @@
          ?>
  </head> 
  <body>
-     <div class="container">
+     <body background="../imagenes/Desert.jpg" alt="Desert" width="1200px" height="1200px"/>
+	 <div class="container">
       <?php 
           $estructura->get_menu(3)
          ?>
@@ -43,6 +44,9 @@
                             <th> 
                                 Apellido
                             </th> 
+							<th> 
+                                Cedula
+                            </th> 
                             <th> 
                                 Direcci&oacute;n 
                             </th> 
@@ -62,7 +66,8 @@
                         <tr> 
                             <td><?php echo $row['id_cliente']; ?></td> 
                             <td><?php echo $row['Nombre']; ?></td> 
-                            <td><?php echo $row['Apellido']; ?></td> 
+                            <td><?php echo $row['Apellido']; ?></td>
+							<td><?php echo $row['Cedula']; ?></td>
                             <td><?php echo $row['Direccion']; ?></td> 
                             <td><?php echo $row['telefono']; ?></td> 
                             <td><?php echo $row['Id_detalle_de_factura']; ?></td> 
