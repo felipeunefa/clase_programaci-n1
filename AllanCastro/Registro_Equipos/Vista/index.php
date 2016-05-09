@@ -16,32 +16,36 @@
           $estructura->get_biblotecas()
          ?>
  </head> 
- <body
+ <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
      <div class="container">
          <?php 
-          $estructura->get_menu()
+          $estructura->get_menu_principal()
          ?>
-
+     </div>
+    </nav>
+    </br>
+    </br>
+    </br>
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <?php 
-                $estructura->get_logo("")
+                $estructura->get_lista(1)
             ?>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-9">
                 <div class="jumbotron">
-                    <h1 align="center">Ejemplo de un CRUD</h1>
-        <p align="center">Este es un ejemplo de un CRUD de registro de equipos, para que los alumnos lo tomen como referencia para su poyecto de fin de semestre.</p>
-        <?php $equiposObj->get_equipos();?>
-        <a class="btn btn-lg btn-primary" href="//github.com/allanrc23/clase_programaci-n1.git" role="button"><span class="glyphicon glyphicon-check"></span>Repositorio en Github</a>
+                    <h1 align="center">Registro de Equipos</h1>        
+
+        <a align="center" class="btn btn-lg btn-primary" href="//github.com/allanrc23/clase_programaci-n1.git" role="button"><span class="glyphicon glyphicon-share"></span> Repositorio en Github</a>
                 </div>
             </div>
         </div>
-    </div>
-     
+    <div>   
      <?php 
         $estructura->get_footer()
     ?>
+    </div>
     
     
  </body> 

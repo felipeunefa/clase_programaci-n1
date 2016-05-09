@@ -2,7 +2,7 @@
      require_once "../Modelo/Estructura.php"; 
      require_once "../Modelo/Empleados.php"; 
      $structura = new Estructura();
-   
+     $empleado = new Empleados();
 ?> 
 
 <!DOCTYPE html> 
@@ -29,10 +29,10 @@
                 <h3>Detalles del Proyecto</h3>
                 <ul>
                     <li>Creaci&oacute;n de nuestro Patron MVC</li>
-                    <li>Modelo</li>
-                    <li>Vista</li>
-                    <li>Controlador</li>
-                </ul>
+                    <li>Modelo <span class="glyphicon glyphicon-ok"></span></li>
+                    <li>Vista <span class="glyphicon glyphicon-ok"></span></li>
+                    <li>Controlador <span class="glyphicon glyphicon-ok"></span></li>
+                    </ul>
                 <button type="button" class="btn btn-info btn-lg" id="empleadosBtn">Empleados</button>
                 <button type="button" class="btn btn-info btn-lg" id="registroBtn">Registrar</button>
             </div> 

@@ -18,7 +18,19 @@ class estudiantesM extends Conexion
          
         return $estudiantes; 
     } 
-    
+    public function registrar_studiante($post){
+         $nombre =strip_tags($post['nombre']);
+         $cedula=strip_tags($post['cedula']);
+         $direccion=strip_tags( $post['direccion']);
+         $sexo=strip_tags($post['sexo']);
+         $carrera=strip_tags( $post['carrera']);
+         $fecha=strip_tags( $post['fecha']);
+         $query="INSERT INTO estudiantes 
+         (nombre, ci, fecha_nacimiento, direccion,id_sexos,id_carrera) 
+         VALUES ('$nombre','$cedula','$fecha', '$direccion','$sexo','$carrera')";
+        $exit=$this->_db->query($query) or die('Error de sql del metodo registrar_studiante: '.$this->_db->error);
+        header('Location: ../Vista/registrar_estudiantes.php');
+        } 
     public function get_count_estudiantes() 
     { 
         $result = $this->_db->query('SELECT COUNT(*) as total FROM estudiantes'); 

@@ -1,14 +1,14 @@
 <?php   
     require_once "../Modelo/peluqueria4.php";
     require_once "../Modelo/estructura.php";  
-    require_once "../Modelo/peluquera.php";  
+    require_once "../Modelo/empleada.php";  
     require_once "../Modelo/corte.php";  
     require_once "../Modelo/salon.php"; 
 	
 	 $peluqueria4Obj = new peluqueria4M(); 
     $data_peluqueria4 = $peluqueria4Obj->get_peluqueria4();
     $estructura = new Estructura(); 
-    $peluqueraObj = new PeluqueraM(); 
+    $empleadaObj = new EmpleadaM(); 
     $corteObj = new Corte(); 
 	$salonObj = new Salon(); 
  
@@ -47,6 +47,8 @@
 
                 <form id="form_re"
                   enctype="multipart/form-data"
+                  action="../control/registro_atencion.php"
+                  method="POST"
                   >
 
                 <div class="panel-footer">
@@ -115,16 +117,16 @@
             </div>
              </div>
 			<?php 
-                $peluqueraObj->get_radio();
                 $corteObj->get_select();
 				$salonObj->get_select();
+				$empleadaObj->get_radio();
             ?>
 
                   </div>
 
             <div class="panel-footer" align="center">
-                <button type="button" class="btn btn-info"> Guardar</button>
-				 <button type="button" class="btn btn-info"> Limpiar</button>
+               <button type="submit" class="btn btn-info"> Guardar</button>
+
             </div>
 
                   </div>

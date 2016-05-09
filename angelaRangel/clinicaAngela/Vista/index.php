@@ -9,7 +9,7 @@
 <!DOCTYPE html> 
  <html> 
  <head> 
-     <title>Usuarios registrados</title>
+     <title>Pacientes registrados</title>
      <meta charset="utf-8">     
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -32,7 +32,11 @@
             <div class="col-md-10">
                 <div class="jumbotron">
                     <h1 align="center">Pacientes</h1>
-        <p>Este es un ejemplo de clinicaAngela.</p>
+
+        <p>Ejemplo de clinicaAngela.</p>
+
+        <p> Registro Clinica .</p>
+
         <?php ?>
         <a class="btn btn-lg btn-primary" href="//github.com/felipeunefa/clase_programaci-n1" role="button"><span class="glyphicon glyphicon-check"></span>Repositorio en Github</a>
                 </div>

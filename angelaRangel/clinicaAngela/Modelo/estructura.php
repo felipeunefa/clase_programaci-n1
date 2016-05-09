@@ -9,17 +9,27 @@ class Estructura{
         
     public function get_menu($posicion){
         $Index="";
-        $Pacientes="";
-        $Registrar="";
+        $Consulta="";
+        $Consultorio="";
+        $Médico="";
+        $Paciente="";
         switch($posicion){
             case 1:
                 $Index='class="active"';
                 break;
             case 2:
-                $Registrar='class="active"';
+                $Consulta='class="active"';
                 break;
+
             case 3:
-                $Pacientes='class="active"';
+                $Consultorio='class=actve"';
+                break;
+            case 4:
+                $Medico='class=actve"';
+                break;
+                
+            case 5:
+                $Paciente='class="active"';
                 break;
             }
         echo '<nav class="navbar navbar-default">
@@ -39,8 +49,10 @@ class Estructura{
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li '.$Index.'><a href="#">Inicio <span class="sr-only">(current)</span></a></li>
-        <li '.$Registrar.'><a href="#">Registro </a></li>
-        <li '.$Pacientes.'><a href="#">Pacientes </a></li>
+        <li '.$Consulta.'><a href="#"> Consulta </a></li>
+        <li '.$Consultorio.'><a href="#">Consultorio</a></li>
+        <li '.$Medico.'><a href="#">Medicos </a></li>
+        <li '.$Paciente.'><a href="#">Pacientes </a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -51,17 +63,21 @@ class Estructura{
         echo '<footer class="footer">
       <div class="container">
         <p class="text-muted">Profesor: Felipe Villamizar <br/>
-         Catedra: Programación 1 <br/> Universidad Nacional Experimental de la Fuerza Armada. </p>
+         Catedra: Programación 1 <br/> Universidad Nacional Experimental de la Fuerza Armada. 
+         <br> Nombre Alumno: Angela Rangel <br/> 
+         </p>
+
       </div>
     </footer>';  
         }
         
     public function get_logo($tipo){
-        switch ($tipo) {
+        switch (logo) {
             case 'logo':
-                
                 echo '<img src="../imagenes/logo.png" alt="Logo clinica" width="100px" height="100px"/>';
-                break; 
+                break;
+             
+         
             }
          
         }

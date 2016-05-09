@@ -1,9 +1,8 @@
 <?php   
-     require_once "../Modelo/estudiantes.php";
+    require_once "../Modelo/estudiantes.php";
     require_once "../Modelo/estructura.php";  
     require_once "../Modelo/sexo.php";  
     require_once "../Modelo/carreras.php";  
-
     $estudiantesObj = new estudiantesM(); 
     $data_estudiante = $estudiantesObj->get_estudiantes();
     $estructura = new Estructura(); 
@@ -26,7 +25,7 @@
  <body>
      <div class="container">
       <?php 
-          $estructura->get_menu(2)
+          $estructura->get_menu(2);
          ?>
         <div class="row">
             <div class="col-md-2">
@@ -47,6 +46,8 @@
 -->
                 <form id="form_re"
                   enctype="multipart/form-data"
+                  action="../controladores/registrar_alumnos.php"
+                  method="POST"
                   >
 <!--
                   abre el body del panel
@@ -63,7 +64,7 @@
                             type="text"
                             class="form-control input-lg"
                             id="nombreestudiante"
-                            name="name"
+                            name="nombre"
                             placeholder="Nombre"
                             title="Nombre del estudiante"
                             required="true"/>
@@ -139,7 +140,7 @@
                   abre el pie del panel
 -->
             <div class="panel-footer" align="center">
-                <button type="button" class="btn btn-info"> Guardar</button>
+                <button type="submit" class="btn btn-info"> Guardar</button>
             </div>
 <!--
                   cierra el div pie del panel

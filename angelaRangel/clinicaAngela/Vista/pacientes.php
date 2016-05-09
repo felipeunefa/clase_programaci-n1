@@ -2,14 +2,14 @@
      require_once "../Modelo/consultorio.php"; 
      require_once "../Modelo/estructura.php"; 
 
-    $estudiantesObj = new Consultorio(); 
+    $ConsultorioObj = new Consultorio(); 
     $estructura = new Estructura(); 
 ?> 
 
 <!DOCTYPE html> 
  <html> 
  <head> 
-     <title>Usuarios registrados</title>
+     <title>Pacientes registrados</title>
      <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-md-2">
                 <?php 
-                $estructura->get_logo('blancoNegro')
+                $estructura->get_logo('Logo clinica')
             ?>
             </div>
             <div class="col-md-10">

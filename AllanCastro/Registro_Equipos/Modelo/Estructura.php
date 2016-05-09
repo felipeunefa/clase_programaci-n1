@@ -7,32 +7,59 @@ class Estructura{
             <script src="../biblotecas/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script> ';  
         }
         
-    public function get_menu(){
-        echo '<nav class="navbar navbar-inverse ">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand logo" href="#">
-               Registro de Equipos
-              </a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Inicio</a></li>
-            <li ><a href="#Registrar">Registrar Equipos</a></li>
-            <li ><a href="Equipos_Registrados.php">Equipos Registrados</a></li>
-            <li ><a href="/">Xampp</a></li>
-            <li ><a href="http://localhost/phpmyadmin/db_structure.php?server=1&db=Registro_Equipos&token=0c2d8c3e51e923164a5ffefb25f8231e">Base de Datos</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>';  
-        }
+    public function get_menu_principal(){
+	
+	echo '<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand">Registro de Equipos</a>       
+	</div>
+	<!--div id="navbar" class="collapse navbar-collapse">
+		<ul class="nav navbar-nav">
+		  <li class="active"><a href="#">Home</a></li>
+		  <li><a href="#about">About</a></li>
+		  <li><a href="#contact">Contact</a></li>
+		</ul>
+	</div-->
+	<div id="navbar" class "navbar-collapse collapse">
+		<form class="navbar-form navbar-right">
+		</form>
+	</div>';
+	}
+
+	public function get_lista($posicion){
+		$indice="";
+		$registra="";
+		$registrado="";
+
+		switch ($posicion) {
+			case 1:
+				$indice = 'active';
+				break;
+		
+			case 2:
+				$registra = 'active';
+				break;
+
+			case 3:
+				$registrado = 'active';
+				break;
+		}
+		echo '<div class="col-sm-12">
+			<div class="list-group">
+				<a href="index.php" class = "list-group-item '.$indice.'">Inicio</a>
+				<a href="registrar_equipos.php" class = "list-group-item '.$registra.'">Registrar Equipos</a>
+				<a href="Equipos_Registrados.php" class = "list-group-item '.$registrado.'">Equipos Registrados</a>
+				<a href="/" class="list-group-item">Xampp</a>
+				<a href="http://localhost/phpmyadmin/db_structure.php?server=1&db=Registro_Equipos&token=97a6191f791b2d2c8b282dca874b0c89" class="list-group-item">Base de Datos</a>
+			</div>
+		</div>';
+	}
+	
         
     public function get_footer(){
         echo '<footer class="footer">
@@ -42,6 +69,7 @@ class Estructura{
       </div>
     </footer>';  
         }
+
         
     public function get_logo($tipo){
         switch ($tipo) {
