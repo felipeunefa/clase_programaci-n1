@@ -8,10 +8,10 @@ class NumfacturaM extends Conexion {
          
         $numfactura = $result->fetch_all(MYSQLI_ASSOC);
         $radio='<div class="form-group">
-                    <label >numfactura:</label>'or die('Error de sql : '.$this->_db->error);
+                    <label >numfactura:</label>';
         foreach ($numfactura as $row):
             $radio=$radio.'<div class="radio">
-  <label><input type="radio" name="sexo" value="'.$row['numfactura'].'">'.$row['fecha'].'</label>
+  <label><input type="radio" name="fecha" value="'.$row['numfactura'].'">'.$row['fecha'].'</label>
 </div>';
         endforeach;
         $radio=$radio.'</div>';

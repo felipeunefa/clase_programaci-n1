@@ -4,7 +4,7 @@
     require_once "../Modelo/numfactura.php";  
     require_once "../Modelo/detalles_de_factura.php";  
     $facturaObj = new facturaM(); 
-    $data_facturas = $facturaObj->get_Factura();
+    $data_cliente = $facturaObj->get_factura();
     $estructura = new Estructura(); 
     $numfacturaObj = new NumfacturaM(); 
     $Detalle_de_facturaObj = new Detalle_de_factura(); 
@@ -24,6 +24,7 @@
          ?>
  </head> 
  <body>
+ <body background="../imagenes/Lighthouse.jpg" alt="Lighthouse" width="600px" height="800px"/>
      <div class="container">
       <?php 
           $estructura->get_menu(2)
@@ -62,14 +63,33 @@
                   <input
                             type="text"
                             class="form-control input-lg"
-                            id="nombreestudiante"
+                            id="nombrecliente"
                             name="name"
                             placeholder="Nombre"
-                            title="Nombre del estudiante"
+                            title="Nombre del cliente"
                             required="true"/>
             </div>
              </div>
 <!--
+                inicio de campo de la cedula
+-->
+            <div class="form-group">
+
+                <label>Apellido</label>
+            <div class="input-group col-xs-9">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                <input
+                        type="text"
+                        class="form-control input-lg"
+                        id="inputApellido"
+                        name="Apellido"
+                        required="required"
+                        title="Apellido del cliente"
+                        placeholder="Apellido" />
+                
+            </div>
+            </div>
+			<!--
                 inicio de campo de la cedula
 -->
             <div class="form-group">
@@ -83,46 +103,49 @@
                         id="inputcedula"
                         name="cedula"
                         required="required"
-                        title="Cedula del estudiantes"
+                        title="Cedula del cliente"
                         placeholder="Cédula" />
                 
             </div>
             </div>
-<!--
-                inicio de campo de la fecha
+			<!--
+                inicio de campo de Direccion
 -->
             <div class="form-group">
 
-                <label>Fecha de Nacimiento</label>
+                <label>Direccion</label>
             <div class="input-group col-xs-9">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                <input
-                        type="date"
+                <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
+                
+				<textarea 
+                        type="text"
                         class="form-control input-lg"
                         id="inputcedula"
-                        name="fecha"
+                        name="direccion"
                         required="required"
-                        title="fecha de nacimiento del estudiante"
-                        placeholder="Fecha de Nacimiento" />
+                        title="Direccion del cliente"
+                        placeholder="Dereccion del cliente" 
+						rows="4"> </textarea>
+						
                 
             </div>
             </div>
 <!--
-                inicio de campo direccion
+                inicio de campo telefono
 -->
             <div class="form-group">
 
-                <label>Dirección</label>
+                <label>telefono</label>
             <div class="input-group col-xs-9">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
                 <textarea 
-                    name="direccion"
-                    title="Dirección de la casa del estudiante"
-                    placeholder="Dirección del Estudiante"
+                    name="telefono"
+                    title="telefono del cliente"
+                    placeholder="telefono del cliente"
                     class="form-control input-lg"
                     required="required"
-                    rows="4" 
-                    cols="50"></textarea>
+                    rows="" 
+                    cols=""> </textarea>
                 
             </div>
             </div>

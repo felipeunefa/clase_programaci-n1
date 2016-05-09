@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-04-2016 a las 20:15:10
+-- Tiempo de generación: 07-05-2016 a las 15:56:22
 -- Versión del servidor: 5.5.27
 -- Versión de PHP: 5.4.7
 
@@ -27,27 +27,33 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `cliente` (
+  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
-  `cedula` int(11) NOT NULL,
+  `cedula` int(20) NOT NULL,
   `telefono` int(20) NOT NULL,
   `fecha_cita` date NOT NULL,
   `id_corte` int(11) NOT NULL,
-  `id_peluquera` int(11) NOT NULL,
+  `id_empleada` int(11) NOT NULL,
   `id_salon` int(11) NOT NULL,
-  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_corte`,`id_cliente`),
-  KEY `id_cliente` (`id_cliente`),
-  KEY `id_peluquera` (`id_peluquera`),
-  KEY `id_salon` (`id_salon`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  PRIMARY KEY (`id_cliente`),
+  UNIQUE KEY `id_cliente` (`id_cliente`),
+  KEY `id_corte` (`id_corte`,`id_empleada`,`id_salon`),
+  KEY `id_salon` (`id_salon`),
+  KEY `id_empleada` (`id_empleada`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`nombre`, `cedula`, `telefono`, `fecha_cita`, `id_corte`, `id_peluquera`, `id_salon`, `id_cliente`) VALUES
-('Maria Perez', 12169843, 7483647, '2016-04-03', 1, 2, 1, 1),
-('Jose Lopez', 16897455, 7483647, '2016-05-15', 2, 1, 2, 2);
+INSERT INTO `cliente` (`id_cliente`, `nombre`, `cedula`, `telefono`, `fecha_cita`, `id_corte`, `id_empleada`, `id_salon`) VALUES
+(1, 'maria perez', 12169843, 2125978411, '2016-05-26', 1, 1, 1),
+(2, 'jose lopez', 20458997, 3265484, '2016-06-23', 2, 2, 2),
+(3, 'Julieta Ramos', 16897455, 63214578, '2016-06-26', 3, 3, 3),
+(4, 'jesus toro', 12345698, 42548754, '2016-08-30', 4, 4, 4),
+(5, 'karla guzman', 24587456, 56587457, '2016-05-23', 5, 5, 5),
+(6, 'isaac laplante', 19294094, 6547854, '2016-06-28', 6, 6, 6),
+(8, 'david gomez', 11111111, 1254698, '2016-07-28', 6, 0, 4);
 
 -- --------------------------------------------------------
 
@@ -58,39 +64,47 @@ INSERT INTO `cliente` (`nombre`, `cedula`, `telefono`, `fecha_cita`, `id_corte`,
 CREATE TABLE IF NOT EXISTS `corte` (
   `id_corte` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_corte`),
-  KEY `id_corte` (`id_corte`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `enlace` int(11) NOT NULL,
+  PRIMARY KEY (`id_corte`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `corte`
 --
 
-INSERT INTO `corte` (`id_corte`, `descripcion`) VALUES
-(1, 'Corte Bajo'),
-(2, 'Corte Rapado');
+INSERT INTO `corte` (`id_corte`, `descripcion`, `enlace`) VALUES
+(1, 'corte bajo', 1),
+(2, 'corte rapado', 1),
+(3, 'tinte de cabello', 1),
+(4, 'corte de barba', 1),
+(5, 'secado de cabello', 1),
+(6, 'corte Mcgreidy', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `peluquera`
+-- Estructura de tabla para la tabla `empleada`
 --
 
-CREATE TABLE IF NOT EXISTS `peluquera` (
-  `id_peluquera` int(11) NOT NULL AUTO_INCREMENT,
-  `telefono_peluquera` int(11) NOT NULL,
-  `nombre_peluquera` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_peluquera`),
-  KEY `id_peluquera` (`id_peluquera`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+CREATE TABLE IF NOT EXISTS `empleada` (
+  `id_empleada` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_empleada` varchar(50) NOT NULL,
+  `telefono_empleada` int(20) NOT NULL,
+  `enlace` int(11) NOT NULL,
+  PRIMARY KEY (`id_empleada`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
--- Volcado de datos para la tabla `peluquera`
+-- Volcado de datos para la tabla `empleada`
 --
 
-INSERT INTO `peluquera` (`id_peluquera`, `telefono_peluquera`, `nombre_peluquera`) VALUES
-(1, 414987556, 'Adriana Salgado'),
-(2, 414784556, 'Miranda Ramos');
+INSERT INTO `empleada` (`id_empleada`, `nombre_empleada`, `telefono_empleada`, `enlace`) VALUES
+(1, 'andreina perez', 5421875, 1),
+(2, 'johana gullien', 635487, 1),
+(3, 'tatiana lopez', 9874561, 1),
+(4, 'francis figueredo', 3254589, 1),
+(5, 'dayana mendoza', 9854687, 1),
+(6, 'heidy lara', 6321456, 1);
 
 -- --------------------------------------------------------
 
@@ -100,19 +114,23 @@ INSERT INTO `peluquera` (`id_peluquera`, `telefono_peluquera`, `nombre_peluquera
 
 CREATE TABLE IF NOT EXISTS `salon` (
   `id_salon` int(11) NOT NULL AUTO_INCREMENT,
-  `direccion_salon` text NOT NULL,
-  `telefono_salon` int(11) NOT NULL,
-  PRIMARY KEY (`id_salon`),
-  KEY `id_salon` (`id_salon`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `direccion_salon` varchar(50) NOT NULL,
+  `telefono_salon` int(20) NOT NULL,
+  `enlace` int(11) NOT NULL,
+  PRIMARY KEY (`id_salon`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `salon`
 --
 
-INSERT INTO `salon` (`id_salon`, `direccion_salon`, `telefono_salon`) VALUES
-(1, 'las mercedes', 5998644),
-(2, 'altamira', 8715988);
+INSERT INTO `salon` (`id_salon`, `direccion_salon`, `telefono_salon`, `enlace`) VALUES
+(1, 'chacao', 5214524, 1),
+(2, 'las mercedes', 4215487, 1),
+(3, 'altamira', 8745126, 1),
+(4, 'los ruices', 9854621, 1),
+(5, 'altamira', 1245036, 1),
+(6, 'chacaito', 45216897, 1);
 
 --
 -- Restricciones para tablas volcadas
@@ -122,19 +140,19 @@ INSERT INTO `salon` (`id_salon`, `direccion_salon`, `telefono_salon`) VALUES
 -- Filtros para la tabla `corte`
 --
 ALTER TABLE `corte`
-  ADD CONSTRAINT `corte_ibfk_1` FOREIGN KEY (`id_corte`) REFERENCES `cliente` (`id_corte`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `corte_ibfk_1` FOREIGN KEY (`id_corte`) REFERENCES `cliente` (`id_corte`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `peluquera`
+-- Filtros para la tabla `empleada`
 --
-ALTER TABLE `peluquera`
-  ADD CONSTRAINT `peluquera_ibfk_1` FOREIGN KEY (`id_peluquera`) REFERENCES `cliente` (`id_peluquera`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `empleada`
+  ADD CONSTRAINT `empleada_ibfk_1` FOREIGN KEY (`id_empleada`) REFERENCES `cliente` (`id_empleada`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `salon`
 --
 ALTER TABLE `salon`
-  ADD CONSTRAINT `salon_ibfk_1` FOREIGN KEY (`id_salon`) REFERENCES `cliente` (`id_salon`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `salon_ibfk_1` FOREIGN KEY (`id_salon`) REFERENCES `cliente` (`id_salon`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

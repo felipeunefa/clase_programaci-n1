@@ -110,8 +110,8 @@
                             type="text"
                             class="form-control input-lg"
                             id="telefono"
-                            name="telefono del cliente"
-                            placeholder="telefono"
+                            name="telefono"
+                            placeholder="telefono del cliente"
                             title="telefono del cliente"
                             required="true"/>
             </div>

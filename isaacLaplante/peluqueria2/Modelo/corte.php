@@ -10,7 +10,7 @@ class corte extends Conexion {
                     <label for="sel1">Corte:</label>
                     <div class="input-group col-xs-9">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-scissors"></span></span>
-                  <select class="form-control" id="sel1">
+                  <select class="form-control" name="corte" id="sel1">
                   <option >Seleccione..</option>';
         foreach ($corteData as $corte):
             $select=$select. '<option value="'.$corte['id_corte'].'">'.$corte['descripcion'].'</option>';
