@@ -1,8 +1,8 @@
 <?php   
-     require_once "../Modelo/consultorio.php"; 
+     require_once "../Modelo/paciente.php"; 
      require_once "../Modelo/estructura.php"; 
 
-    $ConsultorioObj = new Consultorio(); 
+    $paciente = new paciente(); 
     $estructura = new Estructura(); 
 ?> 
 
@@ -36,7 +36,7 @@
         <?php $consultorioObj->get_count_consultorio();?>
         <a class="btn btn-lg btn-primary" href="//github.com/felipeunefa/clase_programaci-n1" role="button"><span class="glyphicon glyphicon-check"></span>Repositorio en Github</a>
                 </div>
-            </div>
+            </div
         </div>
     </div>
      
