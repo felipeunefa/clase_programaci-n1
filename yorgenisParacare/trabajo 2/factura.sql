@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-05-2016 a las 20:25:41
+-- Tiempo de generación: 09-05-2016 a las 13:49:04
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 7.0.5
 
@@ -30,6 +30,7 @@ CREATE TABLE `cliente` (
   `id_cliente` int(11) NOT NULL,
   `Nombre` varchar(15) NOT NULL,
   `Apellido` varchar(15) NOT NULL,
+  `Cedula` varchar(20) NOT NULL,
   `Direccion` varchar(15) NOT NULL,
   `telefono` int(20) NOT NULL,
   `Id_detalle_de_factura` int(11) NOT NULL,
@@ -40,8 +41,8 @@ CREATE TABLE `cliente` (
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`id_cliente`, `Nombre`, `Apellido`, `Direccion`, `telefono`, `Id_detalle_de_factura`, `id_numfactura`) VALUES
-(1, 'yorgenis', 'paracare', 'pastora', 1234567890, 1, 1);
+INSERT INTO `cliente` (`id_cliente`, `Nombre`, `Apellido`, `Cedula`, `Direccion`, `telefono`, `Id_detalle_de_factura`, `id_numfactura`) VALUES
+(1, 'yorgenis', 'paracare', '17498986', 'pastora', 1234567890, 1, 1);
 
 -- --------------------------------------------------------
 

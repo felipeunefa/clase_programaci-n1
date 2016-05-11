@@ -6,12 +6,12 @@ class NumfacturaM extends Conexion {
     public function get_radio(){
         $result = $this->_db->query('select * from numfactura where estado=1'); 
          
-        $numfactura = $result->fetch_all(MYSQLI_ASSOC);
+        $numfacturadata = $result->fetch_all(MYSQLI_ASSOC);
         $radio='<div class="form-group">
                     <label >numfactura:</label>';
-        foreach ($numfactura as $row):
+        foreach ($numfacturadata as $row):
             $radio=$radio.'<div class="radio">
-  <label><input type="radio" name="fecha" value="'.$row['numfactura'].'">'.$row['fecha'].'</label>
+  <label><input type="radio" name="fecha" value="'.$row['id_numfactura'].'">'.$row['fecha'].'</label>
 </div>';
         endforeach;
         $radio=$radio.'</div>';
