@@ -52,7 +52,7 @@
 -->
                 <form id="form_re"
                   enctype="multipart/form-data"
-                  action="../controladores/registrar_alumnos.php"
+                  action="../controladores/registrar_equipos.php"
                   method="POST"
                   >
 <!--
@@ -76,7 +76,7 @@
 		                  		  <input
 		                            type="text"
 		                            class="form-control input-lg"
-		                            id="nombremodelo"
+		                            id="modeloequipo"
 		                            name="modelo"
 		                            placeholder="Modelo del Equipo"
 		                            title="Modelo del equipo"
@@ -94,7 +94,7 @@
 		                  		  <input
 		                            type="text"
 		                            class="form-control input-lg"
-		                            id="serie"
+		                            id="seriequipo"
 		                            name="serie"
 		                            placeholder="Serie del Equipo"
 		                            title="Serie del equipo"
@@ -118,7 +118,7 @@
 		                  cierra el div body del panel
 		-->
 		        	</div>
-		        </form>
+
 <!--
                   abre el pie del panel
 -->
@@ -131,6 +131,7 @@
                   cierra el div panel
 -->
         </div>
+        </form>
 <!--
                 termina el formulario
 -->
