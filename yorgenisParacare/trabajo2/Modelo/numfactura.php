@@ -8,7 +8,7 @@ class NumfacturaM extends Conexion {
          
         $numfacturadata = $result->fetch_all(MYSQLI_ASSOC);
         $radio='<div class="form-group">
-                    <label >numfactura:</label>';
+                    <label >Tipo de factura:</label>';
         foreach ($numfacturadata as $row):
             $radio=$radio.'<div class="radio">
   <label><input type="radio" name="Tipo_de_factura" value="'.$row['id_numfactura'].'">'.$row['Tipo_de_factura'].'</label>

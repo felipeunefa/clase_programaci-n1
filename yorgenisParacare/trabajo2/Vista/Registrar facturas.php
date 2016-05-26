@@ -153,8 +153,8 @@
             </div>
             
              <?php 
-                $numfacturaObj->get_radio();
                 $Detalle_de_facturaObj->get_select();
+				$numfacturaObj->get_radio();
             ?>
 <!--
                   cierra el div body del panel

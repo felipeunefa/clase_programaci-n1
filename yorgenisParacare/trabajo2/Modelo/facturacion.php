@@ -20,15 +20,15 @@ class FacturaM extends Conexion
 	public function registrar_facturas($post){
          $Nombre =strip_tags($post['Nombre']);
          $Apellido=strip_tags($post['Apellido']);
-         $Cedula=strip_tags( $post['Cedula']);
-         $Direccion=strip_tags($post['Direccion']);
-         $Telefono=strip_tags( $post['Telefono']);
-         
-		 
-         $query="INSERT INTO cliente 
-         (Nombre,Apellido,Cedula,Direccion,Direccion,Telefono,Id_detalle_de_factura,id_numfactura) 
-         VALUES ('$Nombre','$Apellido','$Cedula', '$direccion','$Telefono')";
-        $exit=$this->_db->query($query) or die('Error de sql del metodo registrar_factura: '.$this->_db->error);
+         $Cedula=strip_tags( $post['cedula']);
+         $Direccion=strip_tags($post['direccion']);
+         $Telefono=strip_tags( $post['telefono']);
+		 $Tipodefactura=strip_tags( $post['Tipo_de_factura']);
+         $producto=strip_tags( $post['detalle_de_factura']);
+		 $query="INSERT INTO cliente 
+         (Nombre,Apellido,Cedula,Direccion,Telefono,Id_detalle_de_factura,id_numfactura) 
+         VALUES ('$Nombre','$Apellido','$Cedula','$Direccion','$Telefono','$Tipodefactura','$producto')";
+         $exit=$this->_db->query($query) or die('Error de sql del metodo registrar_factura: '.$this->_db->error);
         header('Location: ../Vista/Registrar facturas.php');
         } 
     public function get_count_factura() 
