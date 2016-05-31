@@ -29,7 +29,7 @@
   <body>
       <div class="container">
           <?php
-            $estructura->getNavbar();
+            $estructura->get_menu();
           ?>
       <img src="../imagenes/Header-RESIDENCIAL-HUALAMÁ-CHAPELTIQUE.jpg" alt="..." class="img-thumbnail">
           <?php 

@@ -21,13 +21,15 @@ class Estructura {
     }
 
 
-    public function getNavbar() {
+    public function get_menu() {
         
         echo '<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
-  <button type="button" class="btn btn-default navbar-btn active" href="#" >Inicio</button>
-  <button type="button" class="btn btn-default navbar-btn" href="#">Casas</button>
-  <button type="button" class="btn btn-default navbar-btn" href="#">Apartamentos</button>
+  <ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="index.php">Inicio</a></li>
+  <li role="presentation"><a href="addcasa.php">Agregar Casas</a></li>
+  <li role="presentation"><a href="addpropietario.php">Agregar Propietario</a></li>
+</ul>
   </div>
 </nav>';
     }
