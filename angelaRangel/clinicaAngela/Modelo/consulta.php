@@ -1,7 +1,7 @@
 <?php
 require_once "conexion.php"; 
 
-class consulta extends Conexion {
+class Consulta extends Conexion {
     
     public function get_select(){
         $result = $this->_db->query('select * from consulta where estado=1'); 

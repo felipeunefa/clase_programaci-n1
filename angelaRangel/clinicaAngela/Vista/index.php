@@ -32,11 +32,7 @@
             <div class="col-md-10">
                 <div class="jumbotron">
                     <h1 align="center">Pacientes</h1>
-
-        <p>Ejemplo de clinicaAngela.</p>
-
         <p> Registro Clinica .</p>
-
         <?php ?>
         <a class="btn btn-lg btn-primary" href="//github.com/felipeunefa/clase_programaci-n1" role="button"><span class="glyphicon glyphicon-check"></span>Repositorio en Github</a>
                 </div>

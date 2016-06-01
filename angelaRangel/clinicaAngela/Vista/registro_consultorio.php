@@ -1,21 +1,21 @@
 <?php   
-     require_once "../Modelo/consultorio.php";
-    require_once "../Modelo/estructura.php";  
-    require_once "../Modelo/consulta.php";  
+    require_once "../Modelo/consultorio.php"; 
+    require_once "../Modelo/estructura.php";
     require_once "../Modelo/medico.php";  
-
-    $consultorioObj = new consultorioM(); 
+    require_once "../Modelo/medicos.php";  
+    require_once "../Modelo/consultorio.php";  
+    $consultorioObj = new Consultorio(); 
     $data_consultorio = $consultorioObj->get_consultorio();
-    $estructura = new Estructura(); 
-    $medicoObj = new consultorioM(); 
-    $consultabj = new medico(); 
+    $estructura = new Estructura();  
+    $medicoObj = new Medicos(); 
+    $medico = new Medico();
  
-?>
+?> 
 
 <!DOCTYPE html> 
  <html> 
  <head> 
-     <title>Pacientes registrados</title>
+     <title>Médicos registrados</title>
      <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,12 +26,12 @@
  <body>
      <div class="container">
       <?php 
-          $estructura->get_menu(2)
+          $estructura->get_menu(2);
          ?>
         <div class="row">
             <div class="col-md-2">
                  <?php 
-                $estructura->get_logo('escudo')
+                $estructura->get_logo('logo')
             ?>
             </div>
             <div class="col-md-10">
@@ -40,13 +40,15 @@
 -->
                 <div class="panel panel-info">
                     <div class="panel-heading" >
-                        <h1 align="center">Registrar Estudiantes</h1> 
+                        <h1 align="center">Registrar Consultorio</h1> 
                     </div>
 <!--
                     empieza el formulario
 -->
                 <form id="form_re"
                   enctype="multipart/form-data"
+                  action="../controladores/registrar_consultorio.php"
+                  method="POST"
                   >
 <!--
                   abre el body del panel
@@ -62,10 +64,10 @@
                   <input
                             type="text"
                             class="form-control input-lg"
-                            id="nombrepaciente"
-                            name="name"
+                            id="nombreMedico"
+                            name="nombreMedico"
                             placeholder="Nombre"
-                            title="Nombre del paciente"
+                            title="Nombre del médico"
                             required="true"/>
             </div>
              </div>
@@ -80,11 +82,11 @@
                 <input
                         type="number"
                         class="form-control input-lg"
-                        id="inputcedula"
-                        name="cedula"
+                        id="cedulaMedico"
+                        name="cedulaMedico"
                         required="required"
-                        title="Cedula del paciente"
-                        placeholder="Cédula" />
+                        title="Cedula del Médico"
+                        placeholder="Cedula" />
                 
             </div>
             </div>
@@ -93,17 +95,17 @@
 -->
             <div class="form-group">
 
-                <label>Fecha de Nacimiento</label>
+                <label>MSAS</label>
             <div class="input-group col-xs-9">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                 <input
-                        type="date"
+                        type="text"
                         class="form-control input-lg"
-                        id="inputcedula"
-                        name="fecha"
+                        id="msas"
+                        name="msas"
                         required="required"
-                        title="fecha de nacimiento del paciente"
-                        placeholder="Fecha de Nacimiento" />
+                        title="Registro de sanidad"
+                        placeholder="msas" />
                 
             </div>
             </div>
@@ -112,24 +114,22 @@
 -->
             <div class="form-group">
 
-                <label>Dirección</label>
+                <label>Teléfono</label>
             <div class="input-group col-xs-9">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
-                <textarea 
-                    name="direccion"
-                    title="Dirección "
-                    placeholder="Dirección del Paciente"
+                <input
+                    name="telefono"
+                    title="Télefono móvil del médico"
+                    placeholder="telefono del medico"
                     class="form-control input-lg"
                     required="required"
                     rows="4" 
-                    cols="50"></textarea>
-                
+                    cols="50">
             </div>
             </div>
             
              <?php 
-                $consultorioObj->get_radio();
-                $medicoObj->get_select();
+                $medico->get_radio();
             ?>
 <!--
                   cierra el div body del panel
@@ -139,7 +139,7 @@
                   abre el pie del panel
 -->
             <div class="panel-footer" align="center">
-                <button type="button" class="btn btn-info"> Guardar</button>
+                <button type="submit" class="btn btn-info"> Guardar</button>
             </div>
 <!--
                   cierra el div pie del panel
