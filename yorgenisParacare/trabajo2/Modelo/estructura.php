@@ -22,7 +22,7 @@ class Estructura{
                 $registrados='class="active"';
                 break;
             }
-        echo '<nav class="navbar navbar-inverse ">
+        echo '<nav role="navigation" class="navbar navbar-default navbar-inverse">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -51,8 +51,12 @@ class Estructura{
     public function get_footer(){
         echo '<footer class="footer">
       <div class="container">
+	  <footer class="row col-sm-13">
+        <div class="panel panel-body">
         <p class="text-muted">Profesor: Felipe Villamizar <br/>
-         Catedra: Programación 1 <br/> Universidad Nacional Experimental de la Fuerza Armada. </p>
+         Catedra: Programación 1 <br/> Universidad Nacional Experimental de la Fuerza Armada.<br/> Alumno: Yorgenis Paracare</p>
+        </div>
+        </footer>
       </div>
     </footer>';  
         }
@@ -60,18 +64,18 @@ class Estructura{
     public function get_logo($tipo){
         switch ($tipo) {
             case 'escudo':
-                echo '<img src="../imagenes/logoEscudo.jpg" alt="Logo Unefa" width="100px" height="100px"/>';
+                echo '<img src="../imagenes/logoEscudo.jpg" alt="Logo Unefa" class="img-circle">';
                 break; 
             case 'blancoNegro':
-                echo '<img src="../imagenes/logo_bn.jpg" alt="Logo Unefa" width="100px" height="100px"/>';
+                echo '<img src="../imagenes/logo_bn.jpg" alt="Logo Unefa" class="img-circle">';
                 break; 
             default:
-                echo '<img src="../imagenes/logo.jpg" alt="Logo Unefa" width="100px" height="100px"/>';
+                echo '<img src="../imagenes/logo.jpg" alt="Logo Unefa" class="img-circle">>';
                 break; 
             }
          
         }
     
-    }
+    }  
 
 ?>

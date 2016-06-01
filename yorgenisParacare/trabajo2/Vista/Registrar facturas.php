@@ -58,7 +58,7 @@
 <!--
                 inicio de campo nombre
 -->
-                <div class="form-group ">
+                <div class="form-horizontal ">
                  <label>Nombre</label>
              <div class="input-group col-xs-9">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>

@@ -20,7 +20,7 @@
          ?>
  </head> 
  <body>
-     <body background="../imagenes/Desert.jpg" alt="Desert" width="1200px" height="1200px"/>
+     <body background="../imagenes/Desert.jpg" alt="Desert" width="1900px" height="1900pxpx"/>
 	 <div class="container">
       <?php 
           $estructura->get_menu(3)
@@ -33,7 +33,7 @@
             </div>
             <div class="col-md-10">
                 <h1 align="center">facturas Registrados</h1> 
-                 <table class="table table-striped" > 
+                 <table class="table table-bordered" > 
                         <tr> 
                             <th> 
                                 Id cliente 
@@ -64,14 +64,14 @@
                         <?php foreach ($data_cliente as $row): ?> 
 
                         <tr> 
-                            <td><?php echo $row['id_cliente']; ?></td> 
-                            <td><?php echo $row['Nombre']; ?></td> 
-                            <td><?php echo $row['Apellido']; ?></td>
-							<td><?php echo $row['Cedula']; ?></td>
-                            <td><?php echo $row['Direccion']; ?></td> 
-                            <td><?php echo $row['telefono']; ?></td> 
-                            <td><?php echo $row['producto']; ?></td> 
-							<td><?php echo $row['Tipo_de_factura']; ?></td>
+                            <td class="bg-primary"><?php echo $row['id_cliente']; ?></td> 
+                            <td class="bg-primary"><?php echo $row['Nombre']; ?></td> 
+                            <td class="bg-primary"><?php echo $row['Apellido']; ?></td>
+							<td class="bg-primary"><?php echo $row['Cedula']; ?></td>
+                            <td class="bg-primary"><?php echo $row['Direccion']; ?></td> 
+                            <td class="bg-primary"><?php echo $row['telefono']; ?></td> 
+                            <td class="bg-primary"><?php echo $row['producto']; ?></td> 
+							<td class="bg-primary"><?php echo $row['Tipo_de_factura']; ?></td>
                          <!--   <td><?php echo utf8_encode($row['']); ?></td> 
                         </tr><!-- /TROW --> 
                      
